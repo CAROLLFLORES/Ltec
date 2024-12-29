@@ -18,6 +18,7 @@ h3{
 
 .margin-izquierdo{
     margin-left: 25px;
+    text-align: center;
 }
 
 .titulos-productos{
@@ -52,6 +53,7 @@ h4{
 
 .grande{
     width: 112%;
+    background-color: #777777;
 }
 /* Menú Sticky */
 .sticky-menu {
@@ -416,7 +418,7 @@ button {
 .product-card {
     display: flex;
     flex-direction: column; /* Coloca los elementos en columna */
-    background: white;
+    background-color: rgba(255, 255, 255, 0.9); /* Blanco con 80% de opacidad */
     border: 1px solid #ddd;
     border-radius: 8px;
     text-align: center;
@@ -430,12 +432,9 @@ button {
 
 }
 
-
-
 .product-card:hover {
     transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
 }
-
 
 .product-card h3 {
     font-size: 18px;
@@ -484,12 +483,57 @@ button {
 }
 
 
-
 .product-card.wide {
     width: 100%; /* Ocupa todo el ancho disponible */
     max-width: 600px; /* Ajusta un ancho máximo para mantener diseño */
     margin: 0 auto; /* Centrado horizontal */
     text-align: center;
+}
+
+/* Grid para 3 elementos */
+.product-grid-dos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 productos por fila */
+    gap: 35px; /* Espacio entre productos */
+    justify-items: center;
+    padding: 10px;
+}
+
+.dos {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en columna */
+    background-color: rgba(255, 255, 255, 0.9); /* Blanco con 80% de opacidad */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    justify-content: space-between; /* Distribuye elementos entre el inicio y el final */
+    margin-top: 5px;
+    position: relative; /* Permite posicionar elementos relativos */
+    width: 150px; /* Ancho fijo para cada card */
+    height: auto; /* Ajusta la altura automáticamente */
+    margin-bottom: 5px;
+}
+
+
+.dos img {
+    width: 100%; /* Ajusta el ancho de la imagen */
+    height: auto; /* Mantiene las proporciones de la imagen */
+    border-radius: 8px;
+}
+
+.img-chica img{
+    width: 50%; /* Ajusta el ancho de la imagen */
+    height: auto; /* Mantiene las proporciones de la imagen */
+    border-radius: 8px;
+}
+
+.img-chica-mas img{
+    width: 30%; /* Ajusta el ancho de la imagen */
+    height: auto; /* Mantiene las proporciones de la imagen */
+    border-radius: 8px;
 }
 
 /* Estilo del recuadro de promociones */
@@ -665,3 +709,127 @@ button {
     color: #ff8800;
 }
 
+
+
+/* Estilos Footer-------------------------------------------------------- */
+footer {
+    background-color: #000000;
+    color: rgb(75, 75, 75);
+    text-align: center;
+    position: relative;
+    margin-top: 100px;
+    width: 100%;
+    padding-top: 50px;
+   
+}  
+footer h2 {
+    display: flex; /* Establece el contenedor como flex */
+    justify-content: center; 
+    height: 280px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px; /* Ajusta el relleno según sea necesario */
+    color: rgb(0, 0, 0); /* Cambia el color del texto para que sea legible en la imagen de fondo */
+    align-items: flex-end;
+}
+   
+.social-icons a {
+    color: white !important;
+    text-decoration: none;
+    margin: -50px 10px; /* Eliminado uno de los margin-top */
+    font-size: 40px !important;
+    padding: 15px;
+}
+.envelope {
+    width: 100%; /* Ancho del sobre */
+    height: 100px; /* Altura del sobre */
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 10px 20px rgba(243, 242, 242, 0.3); /* Sombra */
+    position: relative;
+    align-items: center;
+    margin: 0 auto;
+    
+ }   
+footer .envelope {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    
+}
+.social-icons {
+    position: absolute;
+    top: 50%; /* Posiciona los iconos en el centro verticalmente */
+    left: 50%; /* Posiciona los iconos en el centro horizontalmente */
+    transform: translate(-50%, -50%); /* Centra los iconos */
+}
+.social-icons a:hover {
+    color: #b64a18 !important; /* Color al pasar el mouse */
+}
+
+
+.footer-section p,
+.footer-section a {
+    color: #ccc; /* Color gris claro */
+    font-size: 14px;
+    text-decoration: none;
+    margin-left: 250px;
+}
+
+
+/*distribuidores*/
+.distribuidores-section {
+    background-color: #0a0a0a; /* Fondo claro */
+    padding-right: 200px;
+    padding-left: 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.distribuidores-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajustable para varios tamaños */
+    gap: 20px;
+}
+
+.provincia {
+    background: #adacac;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 1px solid #ddd;
+}
+
+.provincia h3 {
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ff6600; /* Línea de énfasis */
+    padding-bottom: 5px;
+}
+
+.ciudad h4 {
+    font-size: 18px;
+    color: #666;
+    margin-top: 15px;
+}
+
+.ciudad ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ciudad li {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.phone {
+    font-weight: bold;
+    color: #ff6600;
+}

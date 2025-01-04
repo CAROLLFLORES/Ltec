@@ -16,6 +16,7 @@ h3{
     letter-spacing: 6px; /* Añade 2 píxeles de espacio entre cada letra */
 }
 
+
 .margin-izquierdo{
     margin-left: 25px;
     text-align: center;
@@ -243,7 +244,7 @@ h4{
     align-items: center; /* Centra verticalmente */
     justify-content: center; /* Centra horizontalmente */
     gap: 5px; /* Espacio entre "3", "x", y "2" */
-    margin: 15px 5px;
+    margin: 110px 5px;
     overflow: hidden; /* Evita que el contenido se salga del contenedor */
 
 }
@@ -551,7 +552,7 @@ button {
     text-align: center;
     width: 170px;
     overflow: hidden; /* Evita que el contenido sobresalga */
-    height: 420px; /* Altura fija para consistencia */
+    height: 450px; /* Altura fija para consistencia */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -575,7 +576,7 @@ button {
     margin-top: 5px;
     position: relative; /* Permite posicionar elementos relativos */
     width: 180px;    
-    height: 450px;
+    height: 480px;
 }
 
 .promo h3,
@@ -601,7 +602,7 @@ button {
     align-items: center;
     justify-content: center;
     width: 220px; /* Ancho del contenedor */
-    height: auto; /* Altura automática para ajustar contenido */
+    height: 480px; /* Altura automática para ajustar contenido */
 }
 
 .titulo-saldos {
@@ -631,9 +632,7 @@ button {
 .promo-item {
     display: none;
     animation: fadeIn 1s ease-in-out;
-    max-height: 350px; /* Limita la altura máxima de cada promoción */
-
-
+    max-height: 410px; /* Limita la altura máxima de cada promoción */
 }
 
 .promo-item.active {

@@ -10,10 +10,22 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
     <title>L-TEC - Cuerdas de Alta Gama</title>
 </head>
 <body>
+                 <!-- modal -->
+                 <div id="promoModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <img id="promoImage" src="" alt="Imagen de la promoción" style="width: 50%; height: auto; margin-top: 10px;" />
+                        <h3 id="promoTitle"></h3>
+                        <p id="promoDescription"></p>
+                        <p id="precio"></p>
+                    </div>
+                </div>  
+            
     <div class="sticky-menu">
         <div class="menu-item whatsapp">
             <a href="https://wa.me/5493416830332?text=Hola,%20estoy%20interesado%20en%20sus%20productos" target="_blank" rel="noopener noreferrer">
@@ -52,32 +64,46 @@
              <!-- Recuadro de Promociones -->
     <div class="promo-box">
         <div class="promo-item active  ">                      
-            <img src="imagenes/recuadro3x2_nuevo.jpeg" alt="promo" />      
-        </div>
+            <img src="imagenes/3x2.jpeg" alt="promo" />      
+        </div>           
 
-        <div class="promo-item promo-saldos">
-            <div class="titulo-saldos">SALDOS</div>
-            <h3 class="subtitulo-saldos">Cuerdas Redondas</h3>
-            <div class="precio-saldos">Rollo 200m</div>
-            <div class="precio-saldos">ARS 80.000</div>            
-        </div>
-                  
 
-        <div class=" promo-item product-card promo">
+        <div class=" promo-item product-card promo" >
             <img src="imagenes/cuerdas/enduroGoldOS130.png" alt="cuerda Enduro" >
-            <h3 class="titulos-productos">Enduro Gold OS 1,30</h3>
+            <h3 class="titulos-productos" id="promoTitle">Enduro Gold OS 1,30</h3>
             <H4>100 % Poliéster</H4>
             <div class="linea-separadora"></div>
-            <p class="parrafo-centrado p-negrita">Control y Efecto</p>
+            <p class="parrafo-centrado p-negrita" id="promoDescription">Control y Efecto</p>
             <div class="linea-separadora"></div>
             <p class="parrafo-centrado chico">Rollo de 200mts.</p>
             <br>
-            <p class="price">ARS 50.000</p>
+            <p class="price" id="precio">ARS 50.000</p>
         </div>   
 
-        
-        <div class="promo-item">🎁 Envío gratis en compras mayores a ARS 50.000.</div>
-        <div class="promo-item">🔥 ¡Nuevos productos en promoción por tiempo limitado!</div>
+        <div class=" promo-item product-card promo" >
+            <img src="imagenes/cuerdas/saldos/frenchClayOS118.png" alt="cuerda Enduro" >
+            <h3 class="titulos-productos" id="promoTitle">French Clay Oa 1,18</h3>
+            <H4> Co-Poliéster Monofilamento</H4>
+            <div class="linea-separadora"></div>
+            <p class="parrafo-centrado p-negrita" id="promoDescription">Velocidad y precisión</p>
+            <div class="linea-separadora"></div>
+            <p class="parrafo-centrado chico">Rollo de 200mts.</p>
+            <br>
+            <p class="price" id="precio">ARS 120.000</p>
+        </div> 
+
+        <div class=" promo-item product-card promo" >
+            <img src="imagenes/cuerdas/saldos/frencyClayOs130.png" alt="cuerda Enduro" >
+            <h3 class="titulos-productos" id="promoTitle">French Clay OS 1,30</h3>
+            <H4>Co-Poliéster Monofilamento</H4>
+            <div class="linea-separadora"></div>
+            <p class="parrafo-centrado p-negrita" id="promoDescription">Control y Efecto</p>
+            <div class="linea-separadora"></div>
+            <p class="parrafo-centrado chico">Rollo de 200mts.</p>
+            <br>
+            <p class="price" id="precio">ARS 120.000</p>
+        </div>
+
     </div>
             
             <!-- Repetir promoción si es necesario -->
@@ -123,6 +149,10 @@
                         <p class="parrafo-centrado chico">Rollo de 200mts.</p>
                         <br>
                         <p class="price">ARS 50.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Enduro Gold OS 1,30 por ARS 50.000')">
+                            Comprar
+                        </button>
                     </div>
 
                     <div class="product-card">
@@ -135,6 +165,10 @@
                         <p class="parrafo-centrado chico">Rollo de 200mts.</p>
                         <br>
                         <p class="price">ARS 120.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto French Clay OS 1.18')">
+                            Comprar
+                        </button>
                     </div>
 
                     <div class="product-card">
@@ -147,6 +181,10 @@
                         <p class="parrafo-centrado chico">Rollo de 200mts.</p>
                         <br>
                         <p class="price">ARS 120.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto French Clay OS 1.30')">
+                            Comprar
+                        </button>
                     </div>
 
                     <div class="product-card">
@@ -159,6 +197,10 @@
                         <p class="parrafo-centrado chico">Rollo de 200mts.</p>
                         <br>
                         <p class="price">ARS 120.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Silver OS 1,25')">
+                            Comprar
+                        </button>
                     </div>
 
                     <div class="product-card">
@@ -171,6 +213,10 @@
                         <p class="parrafo-centrado chico">Rollo de 200mts.</p>
                         <br>
                         <p class="price">ARS 120.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto BLK OS 1,35')">
+                            Comprar
+                        </button>
                     </div>
 
                     <!-- segundo renglon de CUERDAS -->
@@ -185,6 +231,10 @@
                         <p class="parrafo-centrado chico">Rollo de 200mts.</p>
                         <br>
                         <p class="price">ARS 140.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Flower Power 8S 1,30')">
+                            Comprar
+                        </button>
                     </div>
                     
                     <div class="product-card">
@@ -197,6 +247,10 @@
                         <p class="parrafo-centrado chico">Rollo de 200mts.</p>
                         <br>
                         <p class="price">ARS 160.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Elastron 3ST 1.28')">
+                            Comprar
+                        </button>
                     </div>
 
                     <div class="product-card">
@@ -208,6 +262,10 @@
                         <p class="parrafo-centrado chico">Rollo de 200mts.</p>
                         <br>
                         <p class="price">ARS 180.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Orion 1,25')">
+                            Comprar
+                        </button>
                     </div>
 
                     <div class="product-card">
@@ -219,6 +277,10 @@
                         <p class="parrafo-centrado chico">Rollo de 250mts.</p>
                         <br>
                         <p class="price">ARS 180.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Orion 1,30')">
+                            Comprar
+                        </button>
                     </div>
 
                     <div class="product-card">
@@ -230,10 +292,14 @@
                         <p class="parrafo-centrado chico">Rollo de 250mts.</p>
                         <br>
                         <p class="price">ARS 200.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Glaciar PM 5S 1,25')">
+                            Comprar
+                        </button>
                     </div>
 
                     <div class="product-card">
-                        <h3 class="titulos-productos">Glaciar PM 5S 1,30/h3>
+                        <h3 class="titulos-productos">Glaciar PM 5S 1,30</h3>
                         <H4>Co-Poliéster y ovalada  </H4>
                         <div class="linea-separadora"></div>
                         <p class="parrafo-centrado p-negrita">Control y Efecto y duración
@@ -241,6 +307,10 @@
                         <p class="parrafo-centrado chico">Rollo de 250mts.</p>
                         <br>
                         <p class="price">ARS 200.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Glaciar PM 5S 1,30')">
+                            Comprar
+                        </button>
                     </div>
 
 
@@ -264,6 +334,10 @@
                         <p class="parrafo-centrado chico">Rollo de 200mts.</p>
                         <br>
                         <p class="price">ARS 100.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto InOX 7S 1,27')">
+                            Comprar
+                        </button>
                     </div>
                    
                     <div class="product-card">
@@ -276,6 +350,10 @@
                         <p class="parrafo-centrado chico">Rollo de 200mts.</p>
                         <br>
                         <p class="price">ARS 100.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Ónix 7S 1,33')">
+                            Comprar
+                        </button>
                     </div>                    
                     
                     <div class="product-card">
@@ -288,6 +366,10 @@
                         <p class="parrafo-centrado chico">Rollo de 200mts.</p>
                         <br>
                         <p class="price">ARS 100.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Dragster 4S 1,30')">
+                            Comprar
+                        </button>
                     </div>
             </div>
 
@@ -305,6 +387,10 @@
                         <p class="parrafo-centrado chico">(3 rollos de 140m) + ParadOx 1,23 (2 rollos de 200m): 5 rollos</p>
                         <br>
                         <p class="price">ARS 300.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Dragster 4S 1,30')">
+                            Comprar
+                        </button>
                     </div>
                 </div>
 </div>
@@ -326,6 +412,10 @@
                         <p class="parrafo-centrado chico">Pack de 50 cubre grips </p>
                         <br>
                         <p class="price">ARS 140.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Cubre grip L-TEC PREMIUM')">
+                            Comprar
+                        </button>
                     </div>
 
                     <div class="product-card wide dos img-chica">
@@ -341,6 +431,10 @@
                         <p class="parrafo-centrado chico">Ambas pinzas</p>
                         <br>
                         <p class="price">AR$ 250.000</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Pinzas STRINGWAY')">
+                            Comprar
+                        </button>
                     </div>
 
                     <div class="product-card wide dos img-chica">
@@ -364,6 +458,11 @@
                         <br>
                         <p class="price">2 apoyos AR$ 400.000  </p><br>
                         <p class="price">6 apoyos AR$ 500.000
+                            <br>
+                            <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Máquina de encordar BARTOM')">
+                            Comprar
+                        </button>
 
                         </p>
                     </div>
@@ -379,89 +478,192 @@
         <div class="distribuidores-container">
             <!-- Provincia de Santa Fe -->
             <div class="provincia">
-                <h3>Provincia de Santa Fe</h3>
+                <h2>Prov. de Santa Fe</h2>
                 <div class="ciudad">
-                    <h4>Rosario</h4>
+                    <br>
+                    <h3>Rosario</h3>
                     <ul>
-                        <li>Halcry Tennis: <span class="phone">+54 9 341 440-0634</span></li>
-                        <li>Victoria Deportes: <span class="phone">+54 9 341 520-3710</span></li>
+                        <p>Halcry Tennis: 
+                            <br>
+                            <br>
+
+                            <a href="https://wa.me/5493414400634" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span class="phone">+54 9 341 440-0634</span>
+                            </a>
+                        </p>
+                        <br>
+
+                        <p>Victoria Deportes: 
+                            <br>
+                            <br>
+
+                            <a href="https://wa.me/5493415203710" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span class="phone">+54 9 341 520-3710</span>
+                            </a>
+                        </p>
                     </ul>
                 </div>
+                <br>
                 <div class="ciudad">
-                    <h4>San Lorenzo</h4>
+                    <h3>San Lorenzo</h3>
                     <ul>
-                        <li>Alberto Lirusso: <span class="phone">+54 9 3476 61-1385</span></li>
+                        <p>Alberto Lirusso: 
+                            <br>
+                            <br>
+
+                            <a href="https://wa.me/5493476611385" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span class="phone">+54 9 3476 61-1385</span>
+                            </a>
+                        </p>
                     </ul>
                 </div>
             </div>
     
             <!-- Provincia de Córdoba -->
             <div class="provincia">
-                <h3>Provincia de Córdoba</h3>
+                <h2>Prov. de Córdoba</h2>
                 <div class="ciudad">
-                    <h4>Córdoba Capital</h4>
+                    <br>
+                    <h3>Córdoba Capital</h3>
                     <ul>
-                        <li>Open Tenis: <span class="phone">+54 9 351 650-3231</span></li>
-                        <li>Master Tenis: <span class="phone">+54 9 351 390-1998</span></li>
+                        <p>Open Tenis: 
+                            <br>
+                            <br>
+
+                            <a href="https://wa.me/5493516503231" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span class="phone">+54 9 351 650-3231</span>
+                            </a>
+                        </p>
+                                            <br>
+
+                        <p>Master Tenis: 
+                            <br>
+                            <br>
+
+                            <a href="https://wa.me/5493513901998" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span class="phone">+54 9 351 390-1998</span>
+                            </a>
+                        </p>
                     </ul>
                 </div>
+                <br>
                 <div class="ciudad">
-                    <h4>Córdoba Sur</h4>
+                    
+                    <h3>Córdoba Sur</h3>
                     <ul>
-                        <li>Fabián Ravetta: <span class="phone">+54 9 3582 59-4794</span></li>
+                        <p>Fabián Ravetta: 
+                            <br>
+                            <br>
+
+                            <a href="https://wa.me/5493582594794" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span class="phone">+54 9 3582 59-4794</span>
+                            </a>
+                        </p>
                     </ul>
                 </div>
             </div>
     
             <!-- Buenos Aires -->
             <div class="provincia">
-                <h3>Buenos Aires</h3>
+                <h2>Buenos Aires</h2>
                 <div class="ciudad">
-                    <h4>C.A.B.A.</h4>
+                    <br>
+                    <h3>C.A.B.A.</h3>
                     <ul>
-                        <li>Mariano Larripa: <span class="phone">+54 9 11 5180-3557</span></li>
+                        <p>Mariano Larripa: 
+                            <br>
+                            <br>
+
+
+                            <a href="https://wa.me/5491151803557" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span class="phone">+54 9 11 5180-3557</span>
+                            </a>
+                        </p>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
+
     
     <script>
-        // Selecciona todos los elementos de las promociones
-        const promoItems = document.querySelectorAll('.promo-item');
-        let currentPromo = 0;
-    
-        // Función para rotar promociones
-        function rotatePromotions() {
-            // Oculta la promoción actual
-            promoItems[currentPromo].classList.remove('active');
-    
-            // Muestra la siguiente promoción
-            currentPromo = (currentPromo + 1) % promoItems.length;
-            promoItems[currentPromo].classList.add('active');
-        }
-    
-        // Cambia de promoción cada 5 segundos
-        setInterval(rotatePromotions, 5000);
-        // Función para desplazarse hacia arriba
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth", // Desplazamiento suave
-            });
-        }
+        // Selección de elementos de las promociones y el modal
+    const promoItems = document.querySelectorAll('.promo-item');
+    const modal = document.getElementById('promoModal');
+    const modalTitle = document.getElementById('promoTitle');
+    const modalDescription = document.getElementById('promoDescription');
+    const modalImage = document.getElementById('promoImage');
+    const closeBtn = document.querySelector('.modal .close');
+    let currentPromo = 0;
 
-        // Mostrar u ocultar el botón según el scroll
-        const scrollButton = document.querySelector('.scroll-button');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 200) {
-                scrollButton.classList.add('show'); // Muestra el botón
-                scrollButton.classList.remove('hide');
-            } else {
-                scrollButton.classList.add('hide'); // Oculta el botón
-                scrollButton.classList.remove('show');
-            }
+    // Función para rotar promociones
+    function rotatePromotions() {
+        // Oculta la promoción actual
+        promoItems[currentPromo].classList.remove('active');
+        // Muestra la siguiente promoción
+        currentPromo = (currentPromo + 1) % promoItems.length;
+        promoItems[currentPromo].classList.add('active');
+    }
+
+    // Cambia de promoción cada 2.5 segundos
+    setInterval(rotatePromotions, 2500);
+
+    // Función para abrir el modal al hacer clic en una promoción
+    promoItems.forEach((item) => {
+        item.addEventListener('click', () => {
+            // Obtener datos de la promoción
+            const title = item.querySelector('h3') ? item.querySelector('h3').textContent : 'Promoción';
+            const description = item.querySelector('p') ? item.querySelector('p').textContent : '';
+            const image = item.querySelector('img') ? item.querySelector('img').src : '';
+
+            // Actualizar contenido del modal
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalImage.src = image;
+
+            // Mostrar el modal
+            modal.style.display = 'block';
         });
+    });
+
+    // Cerrar el modal al hacer clic en la "X"
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Cerrar el modal al hacer clic fuera de él
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Función para desplazarse hacia arriba
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth", // Desplazamiento suave
+        });
+    }
+
+    // Mostrar u ocultar el botón según el scroll
+    const scrollButton = document.querySelector('.scroll-button');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) {
+            scrollButton.classList.add('show'); // Muestra el botón
+            scrollButton.classList.remove('hide');
+        } else {
+            scrollButton.classList.add('hide'); // Oculta el botón
+            scrollButton.classList.remove('show');
+        }
+    });
+
+    function openWhatsApp(message) {
+        const phoneNumber = '5493416830332'; // Número de WhatsApp
+        const encodedMessage = encodeURIComponent(message); // Codifica el mensaje para la URL
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank'); // Abre WhatsApp en una nueva pestaña
+    }
 
     </script>
     
@@ -471,9 +673,9 @@
         <div class="envelope">
             <div class="social-icons">
                 <!-- Reemplaza las URL de los enlaces con tus perfiles sociales -->
-                <a href="https://www.linkedin.com/in/caroll-flores-4a9226116/" target="_blank"> <i class="fab fa-instagram"></i></i></a>
-                <a href="https://github.com/CAROLLFLORES/github-slideshow" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:caroll02@hotmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+                <a href="https://wa.me/5493416830332?text=Hola,%20estoy%20interesado%20en%20sus%20productos" target="_blank" rel="noopener noreferrer">  <i class="fab fa-instagram"></i></i></a>
+                <a href="https://wa.me/5493416830332?text=Hola,%20estoy%20interesado%20en%20sus%20productos" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:saulerlicher@hotmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
             </div> 
         </div>
         <br><br>

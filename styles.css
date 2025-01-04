@@ -243,7 +243,9 @@ h4{
     align-items: center; /* Centra verticalmente */
     justify-content: center; /* Centra horizontalmente */
     gap: 5px; /* Espacio entre "3", "x", y "2" */
-    margin: 15px 0;
+    margin: 15px 5px;
+    overflow: hidden; /* Evita que el contenido se salga del contenedor */
+
 }
 
 .promo-main .big {
@@ -281,6 +283,8 @@ h4{
     justify-content: center; /* Centra horizontalmente */
     align-items: center;
     padding: 20px;
+    overflow: hidden; /* Evita que el contenido se salga del contenedor */
+
 }
 
 /* Barra oscura */
@@ -547,7 +551,7 @@ button {
     text-align: center;
     width: 170px;
     overflow: hidden; /* Evita que el contenido sobresalga */
-    height: 380px; /* Altura fija para consistencia */
+    height: 420px; /* Altura fija para consistencia */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -555,6 +559,8 @@ button {
     top: 100px; /* Ajusta la posición vertical */
     left: -10px; /* Pegado al borde izquierdo */
     z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Diseño flexible y responsivo */
+
 }
 
 .promo{
@@ -564,11 +570,12 @@ button {
     border: 1px solid #ddd;
     border-radius: 8px;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 5px;
     position: relative; /* Permite posicionar elementos relativos */
     width: 180px;    
+    height: 450px;
 }
 
 .promo h3,
@@ -624,6 +631,9 @@ button {
 .promo-item {
     display: none;
     animation: fadeIn 1s ease-in-out;
+    max-height: 350px; /* Limita la altura máxima de cada promoción */
+
+
 }
 
 .promo-item.active {
@@ -785,7 +795,7 @@ footer .envelope {
     padding-left: 200px;
     padding-top: 50px;
     padding-bottom: 50px;
-
+    height: 500px;
     border-radius: 8px;
     margin: 20px 0;
 }
@@ -794,6 +804,7 @@ footer .envelope {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajustable para varios tamaños */
     gap: 20px;
+    height: 400px;
 }
 
 .provincia {
@@ -832,4 +843,82 @@ footer .envelope {
 .phone {
     font-weight: bold;
     color: #ff6600;
+    text-decoration: none; /* Quita el subrayado */
+
+}
+
+a {
+    text-decoration: none; /* Quita el subrayado */
+    color: inherit; /* Mantiene el color del texto */
+}
+
+
+/*modal*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    background-color: #636262;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal-content h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.close:hover {
+    color: red;
+}
+
+.buy-button {
+    background-color: transparent !important;
+    border: 2px solid white !important;
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    cursor: pointer; /* Cambia el cursor a un puntero al pasar por el botón */
+    text-align: center; /* Centra el texto */
+    box-shadow: none; /* Sin sombra */
+    display: inline-block; /* Se comporta como un botón */
+    transition: all 0.3s ease; /* Transición suave */
+    color: black !important;; /* Texto negro */
+
+}
+
+.buy-button:hover {
+    background-color: white; /* Fondo blanco al pasar el ratón */
+    color: black; /* Texto negro al pasar el ratón */
+    border-color: black; /* Cambia el borde a negro */
 }

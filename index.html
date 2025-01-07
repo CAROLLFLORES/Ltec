@@ -15,17 +15,50 @@
     <title>L-TEC - Cuerdas de Alta Gama</title>
 </head>
 <body>
-                 <!-- modal -->
-                 <div id="promoModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <img id="promoImage" src="" alt="Imagen de la promoción" style="width: 50%; height: auto; margin-top: 10px;" />
-                        <h3 id="promoTitle"></h3>
-                        <p class="parrafo-centrado" id="promoDescription"></p>
-                        <p id="precio"></p>
-                    </div>
-                </div>  
-            
+    <!-- Modal para Ingreso de Contraseña -->
+    <div id="loginModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Acceso de Administrador</h3>
+            <p>Introduce la clave :</p>
+            <form id="loginForm">
+                <input type="password" id="password" placeholder="Contraseña" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 100%; margin-bottom: 10px;">
+                <button type="submit" style="background-color: #ff6600; color: white; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">Ingresar</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Modal de Edición -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Editar Producto</h3>
+            <form id="editForm">
+                <label for="editTitle">Nombre del Producto:</label>
+                <input type="text" id="editTitle" name="title" required><br><br>
+
+                <label for="editPrice">Precio:</label>
+                <input type="text" id="editPrice" name="price" required><br><br>
+
+                <label for="editDescription">Descripción:</label>
+                <textarea id="editDescription" name="description" rows="4"></textarea><br><br>
+
+                <button type="submit" class="save-button">Guardar Cambios</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="promoModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="closePromoModal">&times;</span>
+            <img id="promoImage" src="" alt="Imagen de la promoción" style="width: 50%; height: auto; margin-top: 10px;">
+            <h3 id="promoTitle"></h3>
+            <p id="promoDescription"></p>
+            <p id="precio"></p>
+        </div>
+    </div>
+
+ <!-- Menus sticky iconos-->
     <div class="sticky-menu">
         <div class="menu-item whatsapp">
             <a href="https://wa.me/5493416830332?text=Hola,%20estoy%20interesado%20en%20sus%20productos" target="_blank" rel="noopener noreferrer">
@@ -34,14 +67,16 @@
         </div>        
         
         <div class="menu-item email">
-            <i class="fas fa-envelope"></i> <!-- Ícono de Correo -->
+                <a href="mailto:saulerlicher@hotmail.com" target="_blank">
+                    <i class="fas fa-envelope"></i> <!-- Ícono de Correo -->
+                </a>
         </div>
     </div>
     
     <!-- Barra de navegación -->
     <nav class="nav">
         <div class="logo">
-            <img src="imagenes/logo.png" alt="Logo" />
+            <img id="adminAccessButton" src="imagenes/logo.png" alt="Logo" style="cursor: pointer;" />
         </div>
         <ul class="menu-left">
             <li><a href="#cuerdas">CUERDAS</a></li>
@@ -50,26 +85,21 @@
             <span class="separator"></span>
             <li><a href="#cubregrip">ACCESORIOS</a></li>
         </ul>
-        <ul class="menu-right">
-            <li><a href="#">DISTRIBUIDORES</a></li>
+        <ul class="menu-right " >
+            <li><a href="#distribuidores">DISTRIBUIDORES</a></li>
             <span class="separator"></span>
             <li><a href="#contacto">CONTACTO</a></li>
         </ul>
     </nav>
     
-
-    <!-- Sección Promociones -->
-     
-    <div class="promo-section">
-        <div class="promo-sidebar">
+    <!-- Sección Promociones -->     
+    <div class="promo-section">        
+        <div class="promo-sidebar">            
              <!-- Recuadro de Promociones -->
-    <div class="promo-box">
-        
+    <div class="promo-box">   
         <div class="promo-item active  ">                      
             <img src="imagenes/3x2.jpeg" alt="promo" />      
-        </div>           
-
-
+        </div>        
         <div class=" promo-item product-card promo" >
             <br>
             <br>
@@ -86,6 +116,7 @@
             <p class="price" id="precio">ARS 80.000</p>
         </div>   
 
+         <!-- Productos de promo -->
         <div class=" promo-item product-card promo" >
             <img src="imagenes/cuerdas/saldos/silver122.png" alt="cuerda " >
             <h3 class="titulos-productos" id="promoTitle">Silver 1,22                
@@ -159,13 +190,9 @@
             <div class="linea-separadora"></div>
             <p class="parrafo-centrado " id="promoDescription">Velocidad y Control</p>
             <div class="linea-separadora"></div>
-        </div> 
-        
-
-
+        </div>      
     </div>
             
-            <!-- Repetir promoción si es necesario -->
     </div>
         
 <!-- Contenido principal -->
@@ -175,9 +202,9 @@
                 <div class="logo-hero">
                     <img src="imagenes/logo.png" alt="Logo" />
                 </div>
-                <h3>PRODUCTOS DE ALTA GAMA Y EXCELENCIA</h3>
+                <h3 class="title animate-from-right">PRODUCTOS DE ALTA GAMA Y EXCELENCIA</h3>
                 <div class="right-section">
-                    <h2>L-tec</h2><br>
+                    <h2 >L-tec</h2><br>
                     <h3>CUERDAS</h3>
                     <div class="content">
                         <p>Acorde a las exigencias del tenis de hoy, desarrollada en Inglaterra, 
@@ -193,26 +220,29 @@
                 
             </div>
             <br><br><br><br><br><br><br><br>
-            <h3 class="margin-izquierdo" id="cuerdas">CUERDAS</h3>
+             <!-- Productos principales -->
+            <h3 class="margin-izquierdo title animate-from-left" id="cuerdas">CUERDAS</h3>
             <!-- Productos destacados CUERDAS -->
             <div class="product-section">
                
                 <div class="product-grid">
                     <div class="product-card">
                         <img src="imagenes/cuerdas/enduroGoldOS130.png" alt="cuerda Enduro" >
-                        <h3 class="titulos-productos">Enduro Gold OS 1,30</h3>
-                        <H4>100 % Poliéster</H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Control y Efecto</p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Rollo de 200mts.</p>
-                        <br>
-                        <p class="price">ARS 50.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Enduro Gold OS 1,30 por ARS 50.000')">
-                            Comprar
-                        </button>
-                    </div>
+                            <h3 class="titulos-productos">Enduro Gold OS 1,30</h3>
+                            <p class="parrafo-centrado p-negrita">Control y Efecto</p>
+                            <div class="linea-separadora"></div>
+                            <p class="parrafo-centrado chico">Rollo de 200mts.</p>
+                            <p class="price">ARS 50.000</p>
+                            <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Enduro Gold OS 1,30 por ARS 50.000')">
+                                Comprar
+                            </button>
+                            <!-- Botones de edición (ocultos por defecto) -->
+                            <div class="edit-buttons" style="display: none;">
+                                <button class="edit-product">Modificar</button>
+                                <button class="delete-product">Eliminar</button>
+                            </div>
+                        </div>
+                       
 
                     <div class="product-card">
                         <img src="imagenes/cuerdas/frenchClayOS118.png" alt="cuerda Enduro" >
@@ -281,7 +311,6 @@
                     <!-- segundo renglon de CUERDAS -->
 
                     <div class="product-card">
-                        
                         <h3 class="titulos-productos">Flower Power 8S 1,30</h3>
                         <H4>Co-Poliéster 8 lados</H4>
                         <div class="linea-separadora"></div>
@@ -371,14 +400,12 @@
                             Comprar
                         </button>
                     </div>
-
-
                 </div>
             </div>
 
             <br><br>
             <div class="linea-separadora grande margin-izquiedo"></div>
-            <h3 class="margin-izquierdo">CUERDAS PERFILADAS</h3> 
+            <h3 class="margin-izquierdo title animate-from-left">CUERDAS PERFILADAS</h3> 
             
             <div class="product-section">
                
@@ -434,7 +461,7 @@
 
             <br><br>
             <div class="linea-separadora grande margin-izquiedo"></div>
-            <h3 class="margin-izquierdo">HIBRIDO</h3>
+            <h3 class="margin-izquierdo title animate-from-left">HIBRIDO</h3>
             <div class="product-section">
                 <div class="product-grid single-item">
                     <div class="product-card wide">
@@ -456,7 +483,7 @@
 
             <br><br>
             <div class="linea-separadora grande margin-izquiedo"></div>
-            <h3 class="margin-izquierdo" id="cubregrip">ACCESORIOS</h3> 
+            <h3 class="margin-izquierdo title animate-from-left" id="cubregrip">ACCESORIOS</h3> 
             <div class="product-section">
                 
                 <div class="product-grid-dos">
@@ -533,7 +560,7 @@
     </div>
     </div>
     <div class="distribuidores-section" id="distribuidores">
-        <h3 class="margin-izquierdo">DISTRIBUIDORES</h3>
+        <h3 class="margin-izquierdo title animate-from-left">DISTRIBUIDORES</h3>
         <div class="distribuidores-container">
             <!-- Provincia de Santa Fe -->
             <div class="provincia">
@@ -646,6 +673,27 @@
 
     
     <script>
+
+        // Crear el círculo personalizado
+        const cursor = document.createElement('div');
+        cursor.classList.add('custom-cursor');
+        document.body.appendChild(cursor);
+
+        // Actualizar la posición del círculo según el mouse
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.pageX - 10}px`; // Centra el círculo
+            cursor.style.top = `${e.pageY - 10}px`;
+        });
+
+        // Esconder el cursor cuando no esté sobre botones o promociones
+        document.addEventListener('mouseleave', () => {
+            cursor.style.display = 'none';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursor.style.display = 'block';
+        });
+
         // Selección de elementos de las promociones y el modal
     const promoItems = document.querySelectorAll('.promo-item');
     const modal = document.getElementById('promoModal');
@@ -686,14 +734,14 @@
     });
 
     // Cerrar el modal al hacer clic en la "X"
-    closeBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
+    closePromoModal.addEventListener("click", () => {
+        promoModal.style.display = "none";
     });
 
-    // Cerrar el modal al hacer clic fuera de él
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = 'none';
+    // Evento para cerrar el modal al hacer clic fuera de él
+    window.addEventListener("click", (event) => {
+        if (event.target === promoModal) {
+            promoModal.style.display = "none";
         }
     });
 
@@ -723,7 +771,112 @@
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
         window.open(whatsappUrl, '_blank'); // Abre WhatsApp en una nueva pestaña
     }
+//detecta el scroll//
+    document.addEventListener('DOMContentLoaded', () => {
+        const titles = document.querySelectorAll('.title'); // Selecciona todos los títulos
+    
+        function handleScroll() {
+            titles.forEach((title) => {
+                const rect = title.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    
+                // Comprueba si el título es visible en la pantalla
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    title.classList.add('animate'); // Activa la animación
+                }
+            });
+        }
+    
+        // Escucha el evento de scroll
+        window.addEventListener('scroll', handleScroll);
+    
+        // Llama la función por si ya están visibles al cargar
+        handleScroll();
+    });
+    
+        // Contraseña predefinida
+    const correctPassword = "12345"; // Cambia esta contraseña
 
+    // Elementos del DOM
+    const adminAccessButton = document.getElementById("adminAccessButton");
+    const loginModal = document.getElementById("loginModal");
+    const loginForm = document.getElementById("loginForm");
+    const passwordInput = document.getElementById("password");
+    const editOptions = document.getElementById("editOptions"); // Opciones de edición (ocultas por defecto)
+
+    // Evento al hacer clic en el logo (adminAccessButton)
+    adminAccessButton.addEventListener("click", () => {
+        loginModal.style.display = "flex"; // Muestra el modal
+    });
+
+    // Cerrar el modal al hacer clic en la "X"
+    const closeLoginModal = document.querySelector("#loginModal .close");
+    closeLoginModal.addEventListener("click", () => {
+        loginModal.style.display = "none";
+        passwordInput.value = ""; // Limpia el campo de contraseña
+    });
+
+    // Manejar el formulario de login
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const enteredPassword = passwordInput.value;
+
+        if (enteredPassword === correctPassword) {
+            // Mostrar las opciones de edición solo si la contraseña es correcta
+            loginModal.style.display = "none";
+            editOptions.style.display = "block"; // Muestra las herramientas de edición
+            alert("Bienvenido, ahora puedes editar productos.");
+        } else {
+            alert("Contraseña incorrecta. Inténtalo nuevamente.");
+            passwordInput.value = ""; // Limpia el campo de contraseña
+        }
+    });
+    
+    function enableEditMode() {
+        const editButtons = document.querySelectorAll(".edit-buttons");
+        editButtons.forEach(buttonGroup => {
+            buttonGroup.style.display = "block"; // Muestra los botones de edición
+        });
+    }
+    
+    // Verifica si el administrador ingresó correctamente
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const enteredPassword = passwordInput.value;
+    
+        if (enteredPassword === correctPassword) {
+            loginModal.style.display = "none"; // Oculta el modal
+            enableEditMode(); // Activa el modo de edición
+            alert("Bienvenido, ahora puedes editar productos.");
+        } else {
+            alert("Contraseña incorrecta. Inténtalo nuevamente.");
+            passwordInput.value = ""; // Limpia el campo de contraseña
+        }
+    });
+    
+    const editButtons = document.querySelectorAll(".edit-product");
+    editButtons.forEach(button => {
+        button.addEventListener("click", (e) => {
+            const productCard = e.target.closest(".product-card");
+            const productTitle = productCard.querySelector("h3").textContent;
+            alert(`Modificar producto: ${productTitle}`);
+            // Aquí puedes abrir un formulario para editar los detalles
+        });
+    });
+
+    const deleteButtons = document.querySelectorAll(".delete-product");
+    deleteButtons.forEach(button => {
+        button.addEventListener("click", (e) => {
+            const productCard = e.target.closest(".product-card");
+            const productTitle = productCard.querySelector("h3").textContent;
+            if (confirm(`¿Estás seguro de que deseas eliminar el producto "${productTitle}"?`)) {
+                productCard.remove(); // Elimina el producto del DOM
+                alert("Producto eliminado con éxito.");
+            }
+        });
+    });
+
+    
     </script>
     
     <footer>    

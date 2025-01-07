@@ -2,10 +2,11 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('imagenes/fondo_raqueta.avif') no-repeat center center fixed;
+    background: url('imagenes/raqieta_oscura.jpeg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
 }
+
 
 p {
     font-size: 12px;
@@ -76,7 +77,6 @@ h4{
     justify-content: center;
     border-radius: 25px; /* Bordes redondeados */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
-    cursor: pointer;
     transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
@@ -154,6 +154,8 @@ h4{
     color: #949393;
     padding: 5px 10px;
     transition: color 0.3s ease;
+    
+  
 }
 
 .nav ul li a:hover {
@@ -286,6 +288,7 @@ h4{
     padding: 20px;
     overflow: hidden; /* Evita que el contenido se salga del contenedor */
 
+
 }
 
 /* Barra oscura */
@@ -392,7 +395,6 @@ button {
     border: none;
     color: white;
     padding: 0.5rem 1rem;
-    cursor: pointer;
     border-radius: 5px;
 }
 
@@ -467,7 +469,6 @@ button {
     border: none;
     border-radius: 5px;
     padding: 10px 15px;
-    cursor: pointer;
     transition: background-color 0.3s ease;
     align-self: stretch; /* Hace que el botón ocupe todo el ancho del contenedor */
     margin-top: auto; /* Empuja el botón hacia abajo */
@@ -561,6 +562,7 @@ button {
     left: -10px; /* Pegado al borde izquierdo */
     z-index: 1000; /* Asegura que esté por encima de otros elementos */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Diseño flexible y responsivo */
+    cursor: pointer;
 
 }
 
@@ -902,17 +904,18 @@ a {
 }
 
 .buy-button {
+    width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
     background-color: transparent !important;
     border: 2px solid white !important;
     border-radius: 5px; /* Bordes redondeados */
     padding: 10px 20px; /* Espaciado interno */
     font-size: 16px; /* Tamaño de la fuente */
-    cursor: pointer; /* Cambia el cursor a un puntero al pasar por el botón */
     text-align: center; /* Centra el texto */
     box-shadow: none; /* Sin sombra */
     display: inline-block; /* Se comporta como un botón */
     transition: all 0.3s ease; /* Transición suave */
     color: black !important;; /* Texto negro */
+    cursor: pointer;
 
 }
 
@@ -921,3 +924,66 @@ a {
     color: black; /* Texto negro al pasar el ratón */
     border-color: black; /* Cambia el borde a negro */
 }
+
+
+/* Animación desde la izquierda */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px); /* Comienza desde la izquierda */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Llega a su posición final */
+    }
+}
+
+/* Animación desde la derecha */
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px); /* Comienza desde la derecha */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Llega a su posición final */
+    }
+}
+
+.title {
+    opacity: 0; /* Ocultar inicialmente */
+    transition: all 1s ease-in-out;
+}
+
+.title.animate-from-left.animate {
+    animation: slideInFromLeft 1s ease-in-out forwards;
+}
+
+.title.animate-from-right.animate {
+    animation: slideInFromRight 1s ease-in-out forwards;
+}
+
+/*botones de administracion*/
+.edit-buttons {
+    display: none; /* Ocultos por defecto */
+    margin-top: 10px;
+    padding: 15px;
+}
+
+.edit-product,
+.delete-product {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+.edit-product:hover,
+.delete-product:hover {
+    background-color: #e55a00;
+}
+

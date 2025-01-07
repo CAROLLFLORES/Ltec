@@ -5,16 +5,18 @@ body {
     background: url('imagenes/raqieta_oscura.jpeg') no-repeat center center fixed;
     background-size: cover;
     color: #fff;
+    font-size: 100%; /* Base de 16px en navegadores */
 }
 
 
 p {
-    font-size: 12px;
+    font-size: 0.875rem; /* Escalable */
     text-align: left;
 }
 
 h3{
     letter-spacing: 6px; /* Añade 2 píxeles de espacio entre cada letra */
+    font-size: 1.3rem; /* Escalable */
 }
 
 
@@ -38,6 +40,7 @@ h3{
 .chico{
     font-size: 4px;
 }
+
 h4{
     font-size: 14px;
     text-align: center;
@@ -45,6 +48,7 @@ h4{
     color: #949393;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+
 
 .linea-separadora {
     border: 0;
@@ -336,10 +340,11 @@ h4{
     top: 0; /* Ubica la banda en la parte superior del recuadro */
     left: 0; /* Asegura que empiece desde el borde izquierdo */
     width: 100%; /* Abarca todo el ancho del recuadro */
-    height: 10px; /* Altura de la banda */
-    background-color: #ff6600; /* Color naranja */
+    height: 50px; /* Altura de la banda */
     border-top-left-radius: 8px; /* Bordes redondeados para coincidir con el recuadro */
     border-top-right-radius: 8px;
+    border-bottom: 2px solid #ff6600; /* Línea decorativa debajo del título */
+
 }
 
 
@@ -431,13 +436,24 @@ button {
     text-align: center;
     padding: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    opacity: 0;
+    transform: scale(0.7) translateZ(-100px); /* Escala más pequeña y alejada en Z */
+    transition: opacity 1s ease, transform 1s ease;
     justify-content: space-between; /* Distribuye elementos entre el inicio y el final */
-    margin-top: 5px;
+    margin-top: 15px;
     position: relative; /* Permite posicionar elementos relativos */
     width: 180px;
+    
 
 }
+
+/* Clase para activar la animación */
+.product-card.animate {
+    opacity: 1;
+    transform: scale(1) translateZ(0); /* Regresa al tamaño original y posición */
+}
+
+
 
 .product-card:hover {
     transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
@@ -553,7 +569,7 @@ button {
     text-align: center;
     width: 170px;
     overflow: hidden; /* Evita que el contenido sobresalga */
-    height: 450px; /* Altura fija para consistencia */
+    height: 500px; /* Altura fija para consistencia */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -563,6 +579,8 @@ button {
     z-index: 1000; /* Asegura que esté por encima de otros elementos */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Diseño flexible y responsivo */
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para un efecto elevado */
+
 
 }
 
@@ -575,7 +593,7 @@ button {
     text-align: center;
     padding: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 5px;
+    margin-top: 25px;
     position: relative; /* Permite posicionar elementos relativos */
     width: 180px;    
     height: 480px;
@@ -635,6 +653,7 @@ button {
     display: none;
     animation: fadeIn 1s ease-in-out;
     max-height: 410px; /* Limita la altura máxima de cada promoción */
+    margin-top: 45px;
 }
 
 .promo-item.active {
@@ -908,8 +927,8 @@ a {
     background-color: transparent !important;
     border: 2px solid white !important;
     border-radius: 5px; /* Bordes redondeados */
-    padding: 10px 20px; /* Espaciado interno */
-    font-size: 16px; /* Tamaño de la fuente */
+    padding: 12px 16px; /* Aumenta el área de clic */
+    font-size: 1rem;
     text-align: center; /* Centra el texto */
     box-shadow: none; /* Sin sombra */
     display: inline-block; /* Se comporta como un botón */
@@ -929,38 +948,41 @@ a {
 /* Animación desde la izquierda */
 @keyframes slideInFromLeft {
     from {
+        transform: translateX(-100%); /* Mucho más desplazamiento desde la izquierda */
         opacity: 0;
-        transform: translateX(-50px); /* Comienza desde la izquierda */
     }
     to {
+        transform: translateX(0);
         opacity: 1;
-        transform: translateX(0); /* Llega a su posición final */
     }
 }
 
-/* Animación desde la derecha */
 @keyframes slideInFromRight {
     from {
+        transform: translateX(100%); /* Mucho más desplazamiento desde la derecha */
         opacity: 0;
-        transform: translateX(50px); /* Comienza desde la derecha */
     }
     to {
+        transform: translateX(0);
         opacity: 1;
-        transform: translateX(0); /* Llega a su posición final */
     }
 }
+
 
 .title {
     opacity: 0; /* Ocultar inicialmente */
     transition: all 1s ease-in-out;
+    font-family: 'Roboto', sans-serif; /* Usa la fuente light */
+
+    
 }
 
 .title.animate-from-left.animate {
-    animation: slideInFromLeft 1s ease-in-out forwards;
+    animation: slideInFromLeft 2s ease-in-out forwards;
 }
 
 .title.animate-from-right.animate {
-    animation: slideInFromRight 1s ease-in-out forwards;
+    animation: slideInFromRight 2s ease-in-out forwards;
 }
 
 /*botones de administracion*/
@@ -987,3 +1009,73 @@ a {
     background-color: #e55a00;
 }
 
+/*responsivo*/
+/* Pantallas pequeñas (teléfonos móviles) */
+@media (max-width: 600px) {
+    .promo-box {
+        width: 100%;
+        height: auto; /* Ajusta la altura automáticamente */
+    }
+
+    
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Cambia a 2 columnas */
+        gap: 10px; /* Reduce el espacio entre productos */
+    }
+
+    .product-card {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        padding: 10px; /* Reduce el relleno */
+    }
+
+    .nav {
+        flex-direction: column; /* Cambia la barra de navegación a una columna */
+        padding: 10px;
+    }
+
+    .nav ul {
+        flex-direction: column; /* Menús en columnas */
+        gap: 10px; /* Añade separación entre enlaces */
+        display: none; /* Oculta el menú por defecto */
+    }
+
+    .nav ul.active {
+        display: flex; /* Muestra el menú al hacer clic */
+    }
+
+    .menu-toggle {
+        display: block; /* Muestra el botón hamburguesa */
+        cursor: pointer;
+    }
+
+    .right-section {
+        width: 100%; /* Ocupa todo el ancho */
+        margin: 0; /* Elimina márgenes */
+    }
+
+    .distribuidores-section {
+        padding: 10px; /* Reduce el padding */
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+}
+
+/* Pantallas medianas (tablets) */
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr); /* Cambia a 3 columnas */
+    }
+
+    .right-section {
+        width: 50%; /* Ajusta el ancho para tablets */
+    }
+
+    .distribuidores-section {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover; /* Evita que las imágenes se distorsionen */
+}

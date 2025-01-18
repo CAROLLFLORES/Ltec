@@ -6,6 +6,8 @@ body {
     background-size: cover;
     color: #fff;
     font-size: 100%; /* Base de 16px en navegadores */
+    flex-wrap: wrap;
+
 }
 
 
@@ -163,7 +165,7 @@ h4{
 }
 
 .nav ul li a:hover {
-    color: #ff8800;
+    color: #ff6600;
 }
 
 /* Menú de Navegación Izquierdo */
@@ -258,13 +260,13 @@ h4{
 .promo-main .big {
     font-size: 60px; /* Tamaño grande para '3' y '2' */
     font-weight: bold;
-    color: #ff8800; /* Naranja */
+    color: #ff6600; /* Naranja */
 }
 
 .promo-main .small {
     font-size: 40px; /* Tamaño más pequeño para 'x' */
     font-weight: bold;
-    color: #ff8800;
+    color: #ff6600;
 }
 
 .promo-text {
@@ -291,8 +293,6 @@ h4{
     align-items: center;
     padding: 20px;
     overflow: hidden; /* Evita que el contenido se salga del contenedor */
-
-
 }
 
 /* Barra oscura */
@@ -390,7 +390,7 @@ h4{
 
 .price {
     font-size: 1.2rem;
-    color: #e76915;
+    color: #ff6600;
     text-align: center;
     align-items: end;
 }
@@ -474,13 +474,13 @@ button {
 .product-card .price {
     font-size: 16px;
     font-weight: bold;
-    color: #812525;
+    color: #ff6600;
     margin-top: auto; /* Empuja el precio hacia el fondo */
     margin-bottom: 0px; /* Espaciado debajo del precio */
 }
 
 .product-card button {
-    background-color: #d17d0f;
+    background-color: #ff6600;
     color: white;
     border: none;
     border-radius: 5px;
@@ -635,7 +635,7 @@ button {
 .precio-saldos {
     font-size: 18px; /* Tamaño del precio */
     font-weight: bold;
-    color: #ffcc00; /* Color dorado */
+    color: #ff6600; /* Color dorado */
     margin-bottom: 15px;
 }
 
@@ -683,7 +683,7 @@ button {
 .large-text .big {
     font-size: 100px; /* Tamaño grande */
     font-weight: bold;
-    color: #ff8800;
+    color: #ff6600;
 }
 
 /* Estilo para el símbolo pequeño */
@@ -691,7 +691,7 @@ button {
     font-size: 50px; /* Tamaño más pequeño */
     font-weight: normal;
     margin: 0 5px; /* Espacio entre el "x" y los números */
-    color: #ff8800;
+    color: #ff6600;
     text-align: initial;
 }
 
@@ -736,7 +736,7 @@ button {
 
 .right-section p:last-child {
     font-weight: bold;
-    color: #ff8800;
+    color: #ff6600;
 }
 
 
@@ -810,25 +810,29 @@ footer .envelope {
 
 /*distribuidores*/
 .distribuidores-section {
-    background-color: #0a0a0a; /* Fondo claro */
+    background-color: #000000; /* Fondo claro */
     padding-right: 200px;
     padding-left: 200px;
     padding-top: 50px;
-    padding-bottom: 50px;
-    height: 500px;
+    padding-bottom: 150px;
+    height: auto;
     border-radius: 8px;
-    margin: 20px 0;
+    margin: 50px;
 }
 
 .distribuidores-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajustable para varios tamaños */
     gap: 20px;
-    height: 400px;
+}
+
+.fab{
+    color: #ff6600;
+
 }
 
 .provincia {
-    background: #adacac;
+    background: #424242;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
@@ -837,15 +841,20 @@ footer .envelope {
 
 .provincia h3 {
     font-size: 15px;
-    color: #444;
+    color: #070707;
     margin-bottom: 10px;
     border-bottom: 2px solid #ff6600; /* Línea de énfasis */
     padding-bottom: 5px;
+    
 }
 
+.provincia p{
+    font-size: 16px;
+
+}
 .ciudad h4 {
     font-size: 18px;
-    color: #666;
+    color: #000000;
     margin-top: 15px;
 }
 
@@ -857,12 +866,12 @@ footer .envelope {
 .ciudad li {
     font-size: 16px;
     margin: 5px 0;
-    color: #333;
+    color: #000000;
 }
 
 .phone {
     font-weight: bold;
-    color: #ff6600;
+    color: #ffffff;
     text-decoration: none; /* Quita el subrayado */
 
 }
@@ -877,7 +886,7 @@ a {
 .modal {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 1001;
     left: 0;
     top: 0;
     width: 100%;
@@ -1013,14 +1022,52 @@ a {
 /* Pantallas pequeñas (teléfonos móviles) */
 @media (max-width: 600px) {
     .promo-box {
-        width: 100%;
+        display: flex;
+        flex-direction: column; /* Coloca los elementos en columna */
+        align-items: center;
+        padding: 20px;
+        margin-top: 20px;
+        width: 90%; /* Reduce el ancho del contenedor */
         height: auto; /* Ajusta la altura automáticamente */
+        position: relative; /* Asegúrate de que no sea fijo */
+        z-index: 1; /* Debajo del menú */
+
     }
 
+    .promo-header {
+        position: static; /* Permite que el título se comporte de forma normal */
+        width: 100%;
+        margin-bottom: 15px; /* Espacio entre el título y las imágenes */
+    }
+
+    .promo-item {
+        width: 100%; /* Asegúrate de que las promociones ocupen todo el ancho del contenedor */
+        margin: 10px 0; /* Agrega espacio entre cada promoción */
+    }
+
+    .promo-item img {
+        max-width: 90%; /* Limita el ancho de la imagen */
+        height: auto; /* Mantén las proporciones */
+    }
     
+    
+    .right-section {
+        width: 100%; /* Ocupa todo el ancho */
+        margin: 0 auto; /* Centra horizontalmente */
+        text-align: center; /* Centra el texto */
+    }
+
+    .promo-section {
+        display: flex;
+        flex-direction: column; /* Coloca los elementos en columna */
+        align-items: center; /* Centra los elementos */
+        justify-content: center;
+        margin: 20px auto; /* Centra las promociones */
+    }
+
     .product-grid {
-        grid-template-columns: repeat(2, 1fr); /* Cambia a 2 columnas */
-        gap: 10px; /* Reduce el espacio entre productos */
+        grid-template-columns: repeat(1, 1fr); /* Cambia a 2 columnas */
+        gap: 35px; /* Reduce el espacio entre productos */
     }
 
     .product-card {
@@ -1037,20 +1084,18 @@ a {
         flex-direction: column; /* Menús en columnas */
         gap: 10px; /* Añade separación entre enlaces */
         display: none; /* Oculta el menú por defecto */
+        
     }
 
     .nav ul.active {
         display: flex; /* Muestra el menú al hacer clic */
+        z-index: 99999 !important;
+
     }
 
     .menu-toggle {
         display: block; /* Muestra el botón hamburguesa */
         cursor: pointer;
-    }
-
-    .right-section {
-        width: 100%; /* Ocupa todo el ancho */
-        margin: 0; /* Elimina márgenes */
     }
 
     .distribuidores-section {
@@ -1062,7 +1107,16 @@ a {
 /* Pantallas medianas (tablets) */
 @media (max-width: 1024px) {
     .product-grid {
-        grid-template-columns: repeat(3, 1fr); /* Cambia a 3 columnas */
+        grid-template-columns: repeat(2, 1fr); /* Cambia a 3 columnas */
+        gap: 35px;
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .product-section {
+        grid-template-columns: repeat(2, 1fr); /* Cambia a 3 columnas */
+        text-align: center;
+        padding: 10px;
     }
 
     .right-section {
@@ -1070,7 +1124,35 @@ a {
     }
 
     .distribuidores-section {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+        grid-template-columns: repeat(1, 1fr); /* Dos columnas */
+    }
+
+     /*menu hamburguesa*/
+     .hamburger-menu {
+        display: block; /* Mostrar el botón en móviles */
+        z-index: 99999 !important;
+
+    }
+
+    .nav ul {
+        display: none; /* Ocultar el menú por defecto */
+    }
+
+    .nav ul.active {
+        display: flex; /* Mostrar menú cuando se activa */
+        flex-direction: column; /* Colocar los elementos en columna */
+        position: absolute;
+        top: 60px; /* Debajo del header */
+        right: 20px;
+        background-color: #050505;
+        border-radius: 10px;
+        padding: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        z-index: 99999; /* Asegúrate de que esté por encima de todo */
+    }
+
+    body {
+        background-image: 10%;
     }
 }
 
@@ -1079,3 +1161,18 @@ img {
     height: auto;
     object-fit: cover; /* Evita que las imágenes se distorsionen */
 }
+
+/* Estilos generales para el botón hamburguesa */
+.hamburger-menu {
+    display: block; /* Asegúrate de que el botón sea visible */
+    position: fixed;
+    top: 15px; /* Ajusta la posición en la parte superior */
+    right: 15px; /* Ajusta la posición en la parte derecha */
+    background: none;
+    border: none;
+    font-size: 24px; /* Tamaño del ícono */
+    color: white; /* Color del ícono */
+    cursor: pointer;
+    z-index: 99999 !important;
+}
+

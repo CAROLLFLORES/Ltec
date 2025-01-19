@@ -1,0 +1,1103 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url("/static/imagenes/raqieta_oscura.jpeg ") no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    font-size: 100%; /* Base de 16px en navegadores */
+}
+
+
+p {
+    font-size: 0.875rem; /* Escalable */
+    text-align: left;
+}
+
+h3{
+    letter-spacing: 6px; /* Añade 2 píxeles de espacio entre cada letra */
+    font-size: 1.3rem; /* Escalable */
+}
+
+
+.margin-izquierdo{
+    margin-left: 25px;
+    text-align: center;
+}
+
+.titulos-productos{
+    letter-spacing: -1px;
+}
+
+.parrafo-centrado{
+    text-align: center;
+}
+
+.p-negrita{
+    font-weight: bold;
+}
+
+.chico{
+    font-size: 4px;
+}
+
+h4{
+    font-size: 14px;
+    text-align: center;
+    text-justify: inter-cluster;
+    color: #949393;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.linea-separadora {
+    border: 0;
+    height: 1px; /* Grosor de la línea */
+    background: #ccc; /* Color de la línea */
+    margin: 5px 0; /* Espaciado superior e inferior */
+}
+
+.grande{
+    width: 112%;
+    background-color: #777777;
+}
+/* Menú Sticky */
+.sticky-menu {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+/* Botones del Menú */
+.menu-item {
+    width: 50px; /* Ancho del botón */
+    height: 50px; /* Alto del botón */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra */
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+/* Estilo WhatsApp */
+.menu-item.whatsapp {
+    background-color: #504f4f; /* Color verde de WhatsApp */
+}
+
+.menu-item.whatsapp a i {
+    color: #fff; /* Blanco */
+    font-size: 24px; /* Ajusta el tamaño del ícono */
+    transition: color 0.3s ease; /* Efecto de transición */
+}
+
+.menu-item.whatsapp:hover {
+    transform: scale(1.1); /* Efecto hover: crece */
+}
+
+/* Estilo Email */
+.menu-item.email {
+    background-color: #ff6600; /* Color naranja del correo */
+    font-size: 24px; /* Ajusta el tamaño del ícono */
+}
+
+.menu-item.email:hover {
+    transform: scale(1.1); /* Efecto hover: crece */
+}
+
+/* Íconos dentro de los botones */
+.menu-item img {
+    width: 24px; /* Ancho del ícono */
+    height: 24px; /* Alto del ícono */
+}
+
+
+/* Barra de Navegación */
+.nav {
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro translúcido */
+    padding: 5px 20px; /* Reduce el padding para que no sea tan gruesa */
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espacio entre logo y menú */
+    position: fixed; /* Fija la barra en la parte superior */
+    top: 10px; /* Ajusta la separación desde la parte superior */
+    margin-bottom: 20px; /* Agrega espacio debajo de la barra */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Centrado completo */
+    width: 92%; /* Ajusta el ancho para que no toque los bordes */
+    z-index: 1000; /* Asegura que la barra esté por encima de otros elementos */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para un efecto flotante */
+}
+
+
+/* Menú de Navegación */
+.nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul li {
+    display: inline-block;
+}
+
+.nav ul li a {
+    font-family: 'Atlanta', sans-serif; /* Tipografía Atlanta */
+    font-weight: bold;
+    font-size: 14px; /* Ajusta el tamaño del texto */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    text-decoration: none;
+    color: #949393;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+    
+  
+}
+
+.nav ul li a:hover {
+    color: #ff8800;
+}
+
+/* Menú de Navegación Izquierdo */
+.menu-left {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Menú de Navegación Derecho */
+.menu-right {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-left: auto; /* Empuja este menú hacia la derecha */
+    padding: 0;
+}
+
+/* Separador Vertical */
+.separator {
+    display: inline-block;
+    width: 2px; /* Grosor del tubo */
+    height: 15px; /* Altura del tubo */
+    background-color: #5c5c5c; /* Color del tubo */
+    margin: 0 10px; /* Espaciado entre el tubo y los enlaces */
+}
+
+.separator-linea {
+    width: 100%; /* Abarca todo el ancho del contenedor */
+    height: 1px; /* Línea fina */
+    background-color: #777777; /* Color gris */
+    margin: 30px 0; /* Espaciado superior e inferior */
+}
+
+/* Ajuste del contenido debajo */
+.main-content {
+    margin-top: 80px; /* Da espacio para evitar que el contenido suba bajo la barra */
+}
+
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+.logo img {
+    max-height: 40px; /* Reduce el tamaño del logo */
+    height: auto;
+    object-fit: contain; /* Evita la distorsión del logo */
+    margin-right: 20px; /* Espaciado entre el logo y el menú */
+}
+
+/* Logo dentro de la sección Hero */
+.logo-hero {
+    text-align: center; /* Centra el logo horizontalmente */
+    margin-bottom: 5px; /* Espaciado debajo del logo */
+}
+
+.logo-hero img {
+    height: 250px; /* Aumenta la altura máxima del logo */
+    width: auto; /* Mantén la proporción del logo */
+    object-fit: contain; /* Evita la distorsión */
+}
+
+/*promos*/
+
+.promo-title {
+    font-size: 20px; /* Tamaño del texto 'PROMO' */
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.promo-main {
+    display: flex; /* Coloca "3x2" horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    gap: 5px; /* Espacio entre "3", "x", y "2" */
+    margin: 110px 5px;
+    overflow: hidden; /* Evita que el contenido se salga del contenedor */
+
+}
+
+.promo-main .big {
+    font-size: 60px; /* Tamaño grande para '3' y '2' */
+    font-weight: bold;
+    color: #ff8800; /* Naranja */
+}
+
+.promo-main .small {
+    font-size: 40px; /* Tamaño más pequeño para 'x' */
+    font-weight: bold;
+    color: #ff8800;
+}
+
+.promo-text {
+    font-size: 14px; /* Texto descriptivo */
+    line-height: 1.6; /* Espaciado entre líneas */
+    margin: 10px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.promo-free {
+    font-size: 20px; /* Texto 'GRATIS' */
+    font-weight: bold;
+    margin-top: 15px;
+    color: #fff;
+}
+
+
+
+/* Ajuste del contenedor de la sección */
+.promo-section {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;
+    padding: 20px;
+    overflow: hidden; /* Evita que el contenido se salga del contenedor */
+
+
+}
+
+/* Barra oscura */
+.dark-bar {
+    background-color: #222; /* Color oscuro para la barra */
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    padding: 1rem 0; /* Espaciado interno */
+    text-align: center; /* Centra el contenido dentro de la barra */
+    color: #fff; /* Texto blanco para contraste */
+    margin: 0; /* Sin margen adicional */
+}
+
+.main-content {
+    width: 75%;
+    padding: 1rem;
+}
+
+.hero {
+    text-align: center;
+    background: url('tennis_hero.jpg') no-repeat center;
+    background-size: cover;
+    /*padding: 3rem;*/
+    border-radius: 8px;
+    margin-top: -20px; /* Usa un margen negativo para acercar el contenido a la barra */
+    padding-top: 0; /* Asegura que no haya relleno extra */
+}
+
+/*hacer mas angosto recuadro*/
+.angosto{
+    width: 100%;
+    align-items: center;
+    font-size: 15px;
+    margin-top: 10px;
+    padding: 15px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 10px;
+    
+}
+/* Recuadro Promos */
+
+/* Banda superior */
+.promo-header {
+    position: absolute;
+    top: 0; /* Ubica la banda en la parte superior del recuadro */
+    left: 0; /* Asegura que empiece desde el borde izquierdo */
+    width: 100%; /* Abarca todo el ancho del recuadro */
+    height: 50px; /* Altura de la banda */
+    border-top-left-radius: 8px; /* Bordes redondeados para coincidir con el recuadro */
+    border-top-right-radius: 8px;
+    border-bottom: 2px solid #ff6600; /* Línea decorativa debajo del título */
+
+}
+
+
+.product-card img {
+    width: 140px; /* Ajusta el ancho deseado */
+    height: 140px; /* Ajusta la altura deseada */
+    object-fit: cover; /* Asegura que las imágenes mantengan su proporción */
+    border-radius: 8px; /* Opcional: bordes redondeados */
+    align-items: center;
+    margin: 0 auto;
+}
+
+.negro {
+    background-color: rgba(0, 0, 0, 0.8); /* 80% opaco */
+
+}
+.parent-container {
+    padding-top: 350px; /* Empuja todo el contenido hacia abajo */
+    overflow: visible; /* Asegura que los márgenes no se recorten */
+    position: relative; /* Asegura que los hijos respeten el posicionamiento */
+}
+
+.product-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+
+.characteristics p {
+    font-weight: bold;
+}
+
+.characteristics ul {
+    list-style: none;
+    padding: 0;
+}
+
+.characteristics ul li {
+    margin: 0.5rem 0;
+}
+
+.price {
+    font-size: 1.2rem;
+    color: #e76915;
+    text-align: center;
+    align-items: end;
+}
+
+button {
+    background-color: #ff6600;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+/* Contenedor principal  DE TODOS LOS PRODUCTOS*/
+/* Contenedor principal */
+.product-section {
+    text-align: center;
+    padding: 10px;
+}
+
+.section-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Estilo de la cuadrícula */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 4 productos por fila */
+    gap: 15px; /* Espacio entre productos */
+    justify-items: center;
+    padding: 10px;
+}
+
+/* Tarjetas de producto */
+.product-card {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en columna */
+    background-color: rgba(255, 255, 255, 0.9); /* Blanco con 80% de opacidad */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: scale(0.7) translateZ(-100px); /* Escala más pequeña y alejada en Z */
+    transition: opacity 1s ease, transform 1s ease;
+    justify-content: space-between; /* Distribuye elementos entre el inicio y el final */
+    margin-top: 15px;
+    position: relative; /* Permite posicionar elementos relativos */
+    width: 180px;
+    
+
+}
+
+/* Clase para activar la animación */
+.product-card.animate {
+    opacity: 1;
+    transform: scale(1) translateZ(0); /* Regresa al tamaño original y posición */
+}
+
+
+
+.product-card:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el ratón */
+}
+
+.product-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.product-card .price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #812525;
+    margin-top: auto; /* Empuja el precio hacia el fondo */
+    margin-bottom: 0px; /* Espaciado debajo del precio */
+}
+
+.product-card button {
+    background-color: #d17d0f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+    align-self: stretch; /* Hace que el botón ocupe todo el ancho del contenedor */
+    margin-top: auto; /* Empuja el botón hacia abajo */
+}
+
+.product-card button:hover {
+    background-color: #692713;
+}
+
+/* Ajusta el ancho de las tarjetas cuando solo hay un producto */
+.product-grid.single-item {
+    grid-template-columns: 1fr; /* Una sola columna */
+    justify-content: center; /* Centra el único producto */
+}
+
+.product-grid.single-item img{
+    width: 70%;
+}
+
+
+.product-card.wide {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 600px; /* Ajusta un ancho máximo para mantener diseño */
+    margin: 0 auto; /* Centrado horizontal */
+    text-align: center;
+}
+
+/* Grid para 3 elementos */
+.product-grid-dos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 productos por fila */
+    gap: 35px; /* Espacio entre productos */
+    justify-items: center;
+    padding: 10px;
+}
+
+.dos {
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en columna */
+    background-color: rgba(255, 255, 255, 0.9); /* Blanco con 80% de opacidad */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    justify-content: space-between; /* Distribuye elementos entre el inicio y el final */
+    margin-top: 5px;
+    position: relative; /* Permite posicionar elementos relativos */
+    width: 150px; /* Ancho fijo para cada card */
+    height: auto; /* Ajusta la altura automáticamente */
+    margin-bottom: 5px;
+}
+
+
+.dos img {
+    width: 100%; /* Ajusta el ancho de la imagen */
+    height: auto; /* Mantiene las proporciones de la imagen */
+    border-radius: 8px;
+}
+
+.img-chica img{
+    width: 50%; /* Ajusta el ancho de la imagen */
+    height: auto; /* Mantiene las proporciones de la imagen */
+    border-radius: 8px;
+}
+
+.img-chica-mas img{
+    width: 30%; /* Ajusta el ancho de la imagen */
+    height: auto; /* Mantiene las proporciones de la imagen */
+    border-radius: 8px;
+}
+
+/* Estilo del recuadro de promociones */
+.promo-box {
+    background-color: rgba(49, 49, 49, 0.8);/* Fondo semitransparente */
+    color: #fff; /* Texto blanco */
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    width: 170px;
+    overflow: hidden; /* Evita que el contenido sobresalga */
+    height: 500px; /* Altura fija para consistencia */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed; /* Fija el recuadro en la pantalla */
+    top: 100px; /* Ajusta la posición vertical */
+    left: -10px; /* Pegado al borde izquierdo */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Diseño flexible y responsivo */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para un efecto elevado */
+
+
+}
+
+.promo{
+    background-color: transparent;
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en columna */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 25px;
+    position: relative; /* Permite posicionar elementos relativos */
+    width: 180px;    
+    height: 480px;
+}
+
+.promo h3,
+.promo h4,
+.promo p {
+    color: #ffffff !important; /* Si necesitas forzar el color, agrega !important */
+}
+
+.promo-item img {
+    max-width: 120%;/* Ajusta el ancho máximo al tamaño del contenedor */
+    height: auto; /* Mantiene las proporciones de la imagen */
+    border-radius: 8px; /* Bordes redondeados */
+    object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor */
+}
+
+.promo-saldos {
+    color: #ffffff; /* Texto blanco */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 220px; /* Ancho del contenedor */
+    height: 480px; /* Altura automática para ajustar contenido */
+}
+
+.titulo-saldos {
+    font-size: 22px; /* Tamaño del título */
+    font-weight: bold;
+    text-transform: uppercase; /* Texto en mayúsculas */
+    margin-bottom: 10px;
+}
+
+.precio-saldos {
+    font-size: 18px; /* Tamaño del precio */
+    font-weight: bold;
+    color: #ffcc00; /* Color dorado */
+    margin-bottom: 15px;
+}
+
+.extra-texto-saldos {
+    font-size: 14px; /* Tamaño del texto adicional */
+    font-weight: normal;
+    color: #ffffff; /* Blanco */
+}
+
+
+
+
+/* Oculta promociones que no están activas */
+.promo-item {
+    display: none;
+    animation: fadeIn 1s ease-in-out;
+    max-height: 410px; /* Limita la altura máxima de cada promoción */
+    margin-top: 45px;
+}
+
+.promo-item.active {
+    display: block; /* Muestra solo el elemento activo */
+}
+
+/* Animación */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Contenedor principal */
+.large-text {
+    display: flex;
+    align-items: baseline; /* Alinea los elementos correctamente */
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo para los números grandes */
+.large-text .big {
+    font-size: 100px; /* Tamaño grande */
+    font-weight: bold;
+    color: #ff8800;
+}
+
+/* Estilo para el símbolo pequeño */
+.large-text .small {
+    font-size: 50px; /* Tamaño más pequeño */
+    font-weight: normal;
+    margin: 0 5px; /* Espacio entre el "x" y los números */
+    color: #ff8800;
+    text-align: initial;
+}
+
+/*texto descriptivo empresa a la derecha*/
+.right-section {
+    color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: left;
+    height: auto;
+    width: 20%;
+    margin-top: -350px; /* Ajusta el margen superior según sea necesario */
+    margin-right: -145px; /* Espacio a la derecha */
+    float: right; /* Fija el contenedor al lado derecho */
+}
+
+
+.right-section h2 {
+    font-size: 22px;   
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 6px;
+}
+
+
+.right-section h3 {
+    margin-top: -35px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.right-section p {
+    font-size: 12px;
+    text-align: right;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.right-section p:last-child {
+    font-weight: bold;
+    color: #ff8800;
+}
+
+
+
+/* Estilos Footer-------------------------------------------------------- */
+footer {
+    background-color: #000000;
+    color: rgb(75, 75, 75);
+    text-align: center;
+    position: relative;
+    margin-top: 100px;
+    width: 100%;
+    padding-top: 50px;
+   
+}  
+footer h2 {
+    display: flex; /* Establece el contenedor como flex */
+    justify-content: center; 
+    height: 280px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px; /* Ajusta el relleno según sea necesario */
+    color: rgb(0, 0, 0); /* Cambia el color del texto para que sea legible en la imagen de fondo */
+    align-items: flex-end;
+}
+   
+.social-icons a {
+    color: white !important;
+    text-decoration: none;
+    margin: -50px 10px; /* Eliminado uno de los margin-top */
+    font-size: 40px !important;
+    padding: 15px;
+}
+.envelope {
+    width: 100%; /* Ancho del sobre */
+    height: 100px; /* Altura del sobre */
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 10px 20px rgba(243, 242, 242, 0.3); /* Sombra */
+    position: relative;
+    align-items: center;
+    margin: 0 auto;
+    
+ }   
+footer .envelope {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    
+}
+.social-icons {
+    position: absolute;
+    top: 50%; /* Posiciona los iconos en el centro verticalmente */
+    left: 50%; /* Posiciona los iconos en el centro horizontalmente */
+    transform: translate(-50%, -50%); /* Centra los iconos */
+}
+.social-icons a:hover {
+    color: #b64a18 !important; /* Color al pasar el mouse */
+}
+
+
+.footer-section p,
+.footer-section a {
+    color: #ccc; /* Color gris claro */
+    font-size: 14px;
+    text-decoration: none;
+    margin-left: 250px;
+}
+
+
+/*distribuidores*/
+.distribuidores-section {
+    background-color: #0a0a0a; /* Fondo claro */
+    padding-right: 200px;
+    padding-left: 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: 500px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.distribuidores-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajustable para varios tamaños */
+    gap: 20px;
+    height: 400px;
+}
+
+.provincia {
+    background: #adacac;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border: 1px solid #ddd;
+}
+
+.provincia h3 {
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ff6600; /* Línea de énfasis */
+    padding-bottom: 5px;
+}
+
+.ciudad h4 {
+    font-size: 18px;
+    color: #666;
+    margin-top: 15px;
+}
+
+.ciudad ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ciudad li {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.phone {
+    font-weight: bold;
+    color: #ff6600;
+    text-decoration: none; /* Quita el subrayado */
+
+}
+
+a {
+    text-decoration: none; /* Quita el subrayado */
+    color: inherit; /* Mantiene el color del texto */
+}
+
+
+/*modal*/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    background-color: #636262;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modal-content h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.modal-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #333;
+}
+
+.close:hover {
+    color: red;
+}
+
+.buy-button {
+    width: 100%; /* Asegura que ocupe todo el ancho del contenedor */
+    background-color: transparent !important;
+    border: 2px solid white !important;
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 12px 16px; /* Aumenta el área de clic */
+    font-size: 1rem;
+    text-align: center; /* Centra el texto */
+    box-shadow: none; /* Sin sombra */
+    display: inline-block; /* Se comporta como un botón */
+    transition: all 0.3s ease; /* Transición suave */
+    color: black !important;; /* Texto negro */
+    cursor: pointer;
+
+}
+
+.buy-button:hover {
+    background-color: white; /* Fondo blanco al pasar el ratón */
+    color: black; /* Texto negro al pasar el ratón */
+    border-color: black; /* Cambia el borde a negro */
+}
+
+
+/* Animación desde la izquierda */
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100%); /* Mucho más desplazamiento desde la izquierda */
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100%); /* Mucho más desplazamiento desde la derecha */
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+.title {
+    opacity: 0; /* Ocultar inicialmente */
+    transition: all 1s ease-in-out;
+    font-family: 'Roboto', sans-serif; /* Usa la fuente light */
+
+    
+}
+
+.title.animate-from-left.animate {
+    animation: slideInFromLeft 2s ease-in-out forwards;
+}
+
+.title.animate-from-right.animate {
+    animation: slideInFromRight 2s ease-in-out forwards;
+}
+
+/*botones de administracion*/
+.edit-buttons {
+    display: none; /* Ocultos por defecto */
+    margin-top: 10px;
+    padding: 15px;
+}
+
+.edit-product,
+.delete-product {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 15px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+.edit-product:hover,
+.delete-product:hover {
+    background-color: #e55a00;
+}
+
+/*responsivo*/
+/* Pantallas pequeñas (teléfonos móviles) */
+@media (max-width: 600px) {
+    .promo-box {
+        width: 100%;
+        height: auto; /* Ajusta la altura automáticamente */
+    }
+
+    
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Cambia a 2 columnas */
+        gap: 10px; /* Reduce el espacio entre productos */
+    }
+
+    .product-card {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        padding: 10px; /* Reduce el relleno */
+    }
+
+    .nav {
+        flex-direction: column; /* Cambia la barra de navegación a una columna */
+        padding: 10px;
+    }
+
+    .nav ul {
+        flex-direction: column; /* Menús en columnas */
+        gap: 10px; /* Añade separación entre enlaces */
+        display: none; /* Oculta el menú por defecto */
+    }
+
+    .nav ul.active {
+        display: flex; /* Muestra el menú al hacer clic */
+    }
+
+    .menu-toggle {
+        display: block; /* Muestra el botón hamburguesa */
+        cursor: pointer;
+    }
+
+    .right-section {
+        width: 100%; /* Ocupa todo el ancho */
+        margin: 0; /* Elimina márgenes */
+    }
+
+    .distribuidores-section {
+        padding: 10px; /* Reduce el padding */
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+}
+
+/* Pantallas medianas (tablets) */
+@media (max-width: 1024px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr); /* Cambia a 3 columnas */
+    }
+
+    .right-section {
+        width: 50%; /* Ajusta el ancho para tablets */
+    }
+
+    .distribuidores-section {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover; /* Evita que las imágenes se distorsionen */
+}
+
+
+
+        
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: block; /* Muestra el botón en pantallas pequeñas */
+    }
+}
+.hamburger-menu {
+    display: none; /* Oculta por defecto */
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    z-index: 99999;
+}
+

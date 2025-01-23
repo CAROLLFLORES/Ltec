@@ -1,23 +1,152 @@
-<h2>Lista de Productos</h2>
-<table>
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for producto in productos %}
-        <tr>
-            <td>{{ producto.nombre }}</td>
-            <td>{{ producto.precio }}</td>
-            <td>
-                <a href="{% url 'editar_producto' producto.pk %}">Editar</a> |
-                <a href="{% url 'eliminar_producto' producto.pk %}">Eliminar</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-<a href="{% url 'agregar_producto' %}">Agregar Producto</a>
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Productos</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h2>Listado de Productos</h2>
+        <div class="add-product">
+            <a href="{% url 'agregar_producto' %}">
+                <button class="btn agregar-btn">Agregar Nuevo Producto</button>
+            </a>
+        </div>
+        <table class="product-table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Categoría</th>
+                    <th>Imagenes</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for producto in productos %}
+                <tr>
+                    <td>{{ producto.nombre }}</td>
+                    <td>{{ producto.descripcion }}</td>
+                    <td>ARS {{ producto.precio }}</td>
+                    <td>{{ producto.categoria.nombre }}</td>
+                    <td>{{ producto.imagen.name }}</td>
+
+                    <td class="action-buttons">
+                        <a href="{% url 'editar_producto' producto.id %}">
+                            <button class="btn editar-btn">Editar</button>
+                        </a>
+                        <a href="{% url 'eliminar_producto' producto.id %}">
+                            <button class="btn eliminar-btn">Eliminar</button>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        
+
+    </div>
+</body>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #181818;
+        color: white;
+        margin: 0;
+        padding: 5px;
+    }
+    
+    h2 {
+        text-align: center;
+        color: #fff;
+        margin-bottom: 20px;
+    }
+    
+    .product-table {
+        width: 90%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        background: rgba(0, 0, 0, 0.8);
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    
+    .product-table th, .product-table td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+    }
+    
+    .product-table th {
+        background-color: #ff6600;
+        color: white;
+        text-align: center;
+        font-size: 1.1em;
+    }
+    
+    .product-table td {
+        color: white;
+        font-size: 1em;
+    }
+    
+    .action-buttons {
+        text-align: center;
+        gap: 10px; /* Espaciado entre los botones */
+
+    }
+    
+    .btn {
+        width: 150px;  /* Tamaño uniforme para ambos botones */
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: 0.3s;
+        margin: 5px;
+    }
+    
+    .editar-btn {
+        background-color: #28a745;
+        color: white;
+        weight:20px
+
+    }
+    
+    .editar-btn:hover {
+        background-color: #218838;
+    }
+    
+    .eliminar-btn {
+        background-color: #dc3545;
+        color: white;
+        weight:20px
+
+    }
+    
+    .eliminar-btn:hover {
+        background-color: #c82333;
+    }
+    
+    .agregar-btn {
+        background-color: #ff6600;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .agregar-btn:hover {
+        background-color: #e65c00;
+    }
+    
+    .add-product {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    
+</style>
+</html>

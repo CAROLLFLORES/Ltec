@@ -54,25 +54,7 @@
         </div>
     </div>
     
-    <!-- Modal de Edición
-    <div id="editModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>Editar Producto</h3>
-            <form id="editForm">
-                <label for="editTitle">Nombre del Producto:</label>
-                <input type="text" id="editTitle" name="title" required><br><br>
-
-                <label for="editPrice">Precio:</label>
-                <input type="text" id="editPrice" name="price" required><br><br>
-
-                <label for="editDescription">Descripción:</label>
-                <textarea id="editDescription" name="description" rows="4"></textarea><br><br>
-
-                <button type="submit" class="save-button">Guardar Cambios</button>
-            </form>
-        </div>
-    </div> -->
+    
 
     <div id="promoModal" class="modal" style="display: none;">
         <div class="modal-content">
@@ -113,89 +95,22 @@
                 <div class="promo-item active">
                     <img id="adminAccessButton" src="{% static 'imagenes/3x2.jpeg' %}" alt="promo" />
                 </div>
-                <div class="promo-item product-card promo">
-                    <h2 class="titulos-productos" id="promoTitle">Cuerdas redondas</h2>
-                    <div class="linea-separadora"></div>
-                    <p class="parrafo-centrado chico">Rollo de 200mts.</p>
-                    <div class="linea-separadora"></div>
-                    <p class="price" id="precio">ARS 80.000</p>
-                </div>
-
-            <!-- Productos de promo -->
-            <div class=" promo-item product-card promo" >
-                <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/saldos/silver122.png' %}" alt="cuerda " >
-                <h3 class="titulos-productos" id="promoTitle">Silver 1,22                
-                    </h3>
-                <H5> Co-Poliéster Monofilamento</H5>
-                <div class="linea-separadora"></div>
-                <p class="parrafo-centrado " id="promoDescription">Velocidad y Control</p>
-                <div class="linea-separadora"></div>
-            </div> 
-
-            <div class=" promo-item product-card promo" >
-                <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/saldos/paradOX123_127.png' %}" alt="cuerda " >
-                <h3 class="titulos-productos" id="promoTitle">ParadOx 1,23 y 1,27
-                    </h3>
-                <H5> Co-Poliéster Monofilamento</H5>
-                <div class="linea-separadora"></div>
-                <p class="parrafo-centrado " id="promoDescription">Control</p>
-                <div class="linea-separadora"></div>
-            </div> 
-
-            <div class=" promo-item product-card promo" >
-                <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/saldos/prestige125.png' %}" alt="cuerda " >
-                <h3 class="titulos-productos" id="promoTitle">Prestige 1,25
-                    </h3>
-                <H5> Co-Poliéster Monofilamento</H5>
-                <div class="linea-separadora"></div>
-                <p class="parrafo-centrado " id="promoDescription">Velocidad y Control</p>
-                <div class="linea-separadora"></div>
-            </div> 
-
-            <div class=" promo-item product-card promo" >
-                <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/saldos/azur125.png' %}"  alt="cuerda " >
-                <h3 class="titulos-productos" id="promoTitle">Azur 1,25</h3>
-                <H5> Co-Poliéster Monofilamento</H5>
-                <div class="linea-separadora"></div>
-                <p class="parrafo-centrado " id="promoDescription">Velocidad y Control</p>
-                <div class="linea-separadora"></div>
-            </div> 
-
-            <div class=" promo-item product-card promo" >
-                <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/saldos/ariane125.png' %}" alt="cuerda " >
-                <h3 class="titulos-productos" id="promoTitle">Ariane 1,25</h3>
-                <H5> Co-Poliéster Monofilamento</H5>
-                <div class="linea-separadora"></div>
-                <p class="parrafo-centrado " id="promoDescription">Velocidad y confort</p>
-                <div class="linea-separadora"></div>
-            </div> 
-
-            <div class=" promo-item product-card promo" >
-                <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/saldos/colibri125.png' %}"  alt="cuerda " >
-                <h3 class="titulos-productos" id="promoTitle">Colibri 1,25</h3>
-                <H5> Co-Poliéster Monofilamento</H5>
-                <div class="linea-separadora"></div>
-                <p class="parrafo-centrado " id="promoDescription">Control</p>
-                <div class="linea-separadora"></div>
-            </div> 
-
-            <div class=" promo-item product-card promo" >
-                <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/saldos/inux125.png' %}" alt="cuerda " >
-                <h3 class="titulos-productos" id="promoTitle">InoX 1,25</h3>
-                <H5> Co-Poliéster Monofilamento</H5>
-                <div class="linea-separadora"></div>
-                <p class="parrafo-centrado " id="promoDescription">Control</p>
-                <div class="linea-separadora"></div>
-            </div> 
-            
-            <div class=" promo-item product-card promo" >
-                <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/saldos/onix125_130.png' %}"  alt="cuerda ">
-                <h3 class="titulos-productos" id="promoTitle">OniX 1,25 y 1,30</h3>
-                <H5> Co-Poliéster Monofilamento</H5>
-                <div class="linea-separadora"></div>
-                <p class="parrafo-centrado " id="promoDescription">Velocidad y Control</p>
-                <div class="linea-separadora"></div>
-            </div>      
+                <!-- Iterar sobre los productos de la categoría promociones -->
+                {% for producto in promociones %}
+                    <div class="promo-item product-card promo">
+                        {% if producto.imagen %}
+                            <img src="{% static '' %}{{ producto.imagen }}" alt="{{ producto.nombre }}">
+                        {% else %}
+                            <img src="{% static 'imagenes/logo.png' %}" alt="Imagen por defecto">
+                        {% endif %}                        
+                        <h3 class="titulos-productos" id="promoTitle">{{ producto.nombre }}</h3>
+                        <h5>{{ producto.descripcion }}</h5>
+                        <div class="linea-separadora"></div>
+                        <p class="parrafo-centrado chico">{{ producto.detalle }}</p>
+                        <div class="linea-separadora"></div>
+                        <p class="price" id="precio">ARS {{ producto.precio }}</p>
+                    </div>
+                {% endfor %}      
         </div>
             
     </div>
@@ -226,344 +141,121 @@
             </div>
             <br><br><br><br><br><br><br><br>
              <!-- Productos principales -->
-            <h3 class="margin-izquierdo title animate-from-left" id="cuerdas" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;  
-   ">CUERDAS</h3>
-            <!-- Productos destacados CUERDAS -->
+             <h3 class="margin-izquierdo title animate-from-left" id="cuerdas"  style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;    
+             ">CUERDAS</h3>
+             <div class="product-section">
+                 <div class="product-grid">
+                     {% for producto in cuerdas %}
+                         <div class="product-card">
+                            {% if producto.imagen %}
+                                <img src="{% static '' %}{{ producto.imagen.name }}" alt="{{ producto.nombre }}">
+                            {% else %}
+                                <img src="{% static 'imagenes/logo.png' %}">
+                            {% endif %}
+
+                            <h3 class="titulos-productos">{{ producto.nombre }}</h3>
+                             <p class="parrafo-centrado p-negrita">{{ producto.descripcion }}</p>
+                             <div class="linea-separadora"></div>
+                             <p class="price">ARS {{ producto.precio }}</p>
+                             <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto {{ producto.nombre }} por ARS {{ producto.precio }}')">
+                                 Comprar
+                             </button>
+                         </div>
+                     {% endfor %}
+                 </div>
+             </div>
+
+            <br><br>
+            <div class="linea-separadora grande margin-izquiedo"></div>
+            <h3 class="margin-izquierdo title animate-from-left" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;">CUERDAS PERFILADAS</h3>
             <div class="product-section">
-               
                 <div class="product-grid">
-                    <div class="product-card">
-                        <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/enduroGoldOS130.png' %}" alt="cuerda Enduro" >
-                            <h3 class="titulos-productos">Enduro Gold OS 1,30</h3>
-                            <p class="parrafo-centrado p-negrita">Control y Efecto</p>
+                    {% for producto in cuerdas_perfiladas %}
+                        <div class="product-card">
+                            {% if producto.imagen %}
+                                <img src="{% static '' %}{{ producto.imagen.name }}" alt="{{ producto.nombre }}">
+                            {% else %}
+                                <img src="{% static 'imagenes/logo.png' %}">
+                            {% endif %}
+                            <h3 class="titulos-productos">{{ producto.nombre }}</h3>
+                            <H4>{{ producto.descripcion }}</H4>
+                            <div class="linea-separadora"></div>
+                            <p class="parrafo-centrado p-negrita">{{ producto.detalle }}</p>
                             <div class="linea-separadora"></div>
                             <p class="parrafo-centrado chico">Rollo de 200mts.</p>
-                            <p class="price">ARS 50.000</p>
-                            <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Enduro Gold OS 1,30 por ARS 50.000')">
+                            <br>
+                            <p class="price">ARS {{ producto.precio }}</p>
+                            <br>
+                            <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto {{ producto.nombre }} por ARS {{ producto.precio }}')">
                                 Comprar
                             </button>
-                            <!-- Botones de edición (ocultos por defecto) -->
-                            <div class="edit-buttons" style="display: none;">
-                                <button class="edit-product">Modificar</button>
-                                <button class="delete-product">Eliminar</button>
-                            </div>
                         </div>
-                       
-
-                    <div class="product-card">
-                        <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/frenchClayOS118.png' %}" alt="cuerda Enduro" >
-                        <h3 class="titulos-productos">French Clay OS 1.18</h3>
-                        <H4>Co-Poliéster Monofilamento</H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Velocidad y Precisión</p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Rollo de 200mts.</p>
-                        <br>
-                        <p class="price">ARS 120.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto French Clay OS 1.18')">
-                            Comprar
-                        </button>
-                    </div>
-
-                    <div class="product-card">
-                        <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/frenchClayOS130.png' %}"  alt="cuerda Enduro" >
-                        <h3 class="titulos-productos">French Clay OS 1.30</h3>
-                        <H4>Co-Poliéster Monofilamento</H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Control y Efecto</p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Rollo de 200mts.</p>
-                        <br>
-                        <p class="price">ARS 120.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto French Clay OS 1.30')">
-                            Comprar
-                        </button>
-                    </div>
-
-                    <div class="product-card">
-                        <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/silverOS125.png' %}" alt="cuerda Enduro" >
-                        <h3 class="titulos-productos">Silver OS 1,25</h3>
-                        <H4>Co-Poliéster Monofilamento</H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Velocidad y Control</p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Rollo de 200mts.</p>
-                        <br>
-                        <p class="price">ARS 120.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Silver OS 1,25')">
-                            Comprar
-                        </button>
-                    </div>
-
-                    <div class="product-card">
-                        <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/BLKOS135.png' %}" alt="cuerda Enduro" >
-                        <h3 class="titulos-productos">BLK OS 1,35</h3>
-                        <H4>Co-Poliéster Monofilamento</H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Control, Efecto y durabilidad</p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Rollo de 200mts.</p>
-                        <br>
-                        <p class="price">ARS 120.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto BLK OS 1,35')">
-                            Comprar
-                        </button>
-                    </div>
-
-                    <!-- segundo renglon de CUERDAS -->
-
-                    <div class="product-card">
-                        <h3 class="titulos-productos">Flower Power 8S 1,30</h3>
-                        <H4>Co-Poliéster 8 lados</H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Control y Efecto</p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Rollo de 200mts.</p>
-                        <br>
-                        <p class="price">ARS 140.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Flower Power 8S 1,30')">
-                            Comprar
-                        </button>
-                    </div>
-                    
-                    <div class="product-card">
-                        <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/elastron3ST128.png' %}"  alt="cuerda Enduro" >
-                        <h3 class="titulos-productos">Elastron 3ST 1.28</h3>
-                        <H4>Co-Poliéster 3 lados y torsionada</H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Control y Efecto </p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Rollo de 200mts.</p>
-                        <br>
-                        <p class="price">ARS 160.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Elastron 3ST 1.28')">
-                            Comprar
-                        </button>
-                    </div>
-
-                    <div class="product-card">
-                        <h3 class="titulos-productos">Orion 1,25</h3>
-                        <H4>Co-Poliéster y ovalada  </H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Velocidad y Control </p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Rollo de 200mts.</p>
-                        <br>
-                        <p class="price">ARS 180.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Orion 1,25')">
-                            Comprar
-                        </button>
-                    </div>
-
-                    <div class="product-card">
-                        <h3 class="titulos-productos">Orion 1,30</h3>
-                        <H4>Co-Poliéster y ovalada  </H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Control, Efecto y duración </p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Rollo de 250mts.</p>
-                        <br>
-                        <p class="price">ARS 180.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Orion 1,30')">
-                            Comprar
-                        </button>
-                    </div>
-
-                    <div class="product-card">
-                        <h3 class="titulos-productos">Glaciar PM 5S 1,25</h3>
-                        <H4>Co-Poliéster y ovalada  </H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Control y Efecto</p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Rollo de 250mts.</p>
-                        <br>
-                        <p class="price">ARS 200.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Glaciar PM 5S 1,25')">
-                            Comprar
-                        </button>
-                    </div>
-
-                    <div class="product-card">
-                        <h3 class="titulos-productos">Glaciar PM 5S 1,30</h3>
-                        <H4>Co-Poliéster y ovalada  </H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Control y Efecto y duración
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Rollo de 250mts.</p>
-                        <br>
-                        <p class="price">ARS 200.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Glaciar PM 5S 1,30')">
-                            Comprar
-                        </button>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
 
-            <br><br>
-            <div class="linea-separadora grande margin-izquiedo"></div>
-            <h3 class="margin-izquierdo title animate-from-left" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;    
-  ">CUERDAS PERFILADAS</h3> 
-            
-            <div class="product-section">
-               
-                <div class="product-grid">
-                    <div class="product-card">
-                        <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/perfiladas/inOx7S127.png' %}"   alt="cuerda Enduro" >
-                        <h3 class="titulos-productos">InOX 7S 1,27</h3>
-                        <H4>Co-Poliéster Monofilamento</H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Velocidad y Efecto</p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Rollo de 200mts.</p>
-                        <br>
-                        <p class="price">ARS 100.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto InOX 7S 1,27')">
-                            Comprar
-                        </button>
-                    </div>
-                   
-                    <div class="product-card">
-                        <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/perfiladas/onix7S133.png' %}" alt="cuerda Enduro" >
-                        <h3 class="titulos-productos">Ónix 7S 1,33</h3>
-                        <H4>Co-Poliéster Monofilamento</H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Velocidad, efecto y duración</p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Rollo de 200mts.</p>
-                        <br>
-                        <p class="price">ARS 100.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Ónix 7S 1,33')">
-                            Comprar
-                        </button>
-                    </div>                    
-                    
-                    <div class="product-card">
-                        <img id="adminAccessButton" src="{% static 'imagenes/cuerdas/perfiladas/dragster4S130.png' %}"  alt="cuerda Enduro" >
-                        <h3 class="titulos-productos">Dragster 4S 1,30</h3>
-                        <H4>Co-Poliéster Monofilamento</H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Velocidad y efecto</p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Rollo de 200mts.</p>
-                        <br>
-                        <p class="price">ARS 100.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Dragster 4S 1,30')">
-                            Comprar
-                        </button>
-                    </div>
-            </div>
 
             <br><br>
             <div class="linea-separadora grande margin-izquiedo"></div>
-            <h3 class="margin-izquierdo title animate-from-left" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;   
-  ">HIBRIDO</h3>
-            <div class="product-section">
-                <div class="product-grid single-item">
+            <h3 class="margin-izquierdo title animate-from-left" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;">HIBRIDO</h3>
+
+            <div class="product-section hibrido-section">
+                <div class="product-grid-hibrido">
+                    {% for producto in hibrido %}
+                        <div class="product-card wide">
+                            {% if producto.imagen %}
+                                <img src="{% static '' %}{{ producto.imagen.name }}" alt="{{ producto.nombre }}">
+                            {% else %}
+                                <img src="{% static 'imagenes/logo.png' %}" alt="Imagen por defecto">
+                            {% endif %}
+                            
+                            <h3 class="titulos-productos">{{ producto.nombre }}</h3>
+                            <h4>{{ producto.descripcion }}</h4>
+                            <div class="linea-separadora"></div>
+                            <p class="parrafo-centrado p-negrita">{{ producto.detalle }}</p>
+                            <div class="linea-separadora"></div>
+                            <p class="price">ARS {{ producto.precio }}</p>
+                            <br>
+                            <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto {{ producto.nombre }}')">
+                                Comprar
+                            </button>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+
+
+            <br><br>
+            <div class="linea-separadora grande margin-izquiedo"></div>
+            <h3 class="margin-izquierdo title animate-from-left" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;">ACCESORIOS</h3>
+
+            <div class="product-section accesorios-section">
+                <div class="product-grid-accesorios">
+                    {% for producto in accesorios %}
                     <div class="product-card wide">
-                        <h3 class="titulos-productos">Dragster 4S 1,30</h3>
-                        <h4>Co-Poliéster Monofilamento</h4>
+                        {% if producto.imagen %}
+                            <img src="{% static '' %}{{ producto.imagen.name }}" alt="{{ producto.nombre }}">
+                        {% else %}
+                            <img src="{% static 'imagenes/logo.png' %}" alt="Imagen por defecto">
+                        {% endif %}
+                        
+                        <h3 class="titulos-productos">{{ producto.nombre }}</h3>
+                        <h4>{{ producto.descripcion }}</h4>
                         <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Efecto y Control</p>
+                        <p class="parrafo-centrado p-negrita">{{ producto.detalle }}</p>
                         <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">(3 rollos de 140m) + ParadOx 1,23 (2 rollos de 200m): 5 rollos</p>
+                        <p class="price">ARS {{ producto.precio }}</p>
                         <br>
-                        <p class="price">ARS 300.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Dragster 4S 1,30')">
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto {{ producto.nombre }}')">
                             Comprar
                         </button>
                     </div>
-                </div>
-</div>
-
-            <br><br>
-            <div class="linea-separadora grande margin-izquiedo"></div>
-            <h3 class="margin-izquierdo title animate-from-left" id="cubregrip" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;    
-  ">ACCESORIOS</h3> 
-            <div class="product-section">
-                
-                <div class="product-grid-dos">
-                    <div class="product-card wide dos">
-                        <img id="adminAccessButton" src="{% static 'imagenes/cubregrip.png' %}"  alt="cuerda Enduro" >
-
-                        <h3 class="titulos-productos">  Cubre grip L-TEC PREMIUM </h3>
-                        <H4>
-                            Desarrollado y fabricado en Argentina con insumo alemán. Único cubregrip a nivel mundial de 1,20m (pensado también para el jugador que tiene revés a dos manos), doble corte (no se necesita tijera para finalizar la colocación). Más ancho y más grueso, lo que le da una duración y absorción de la humedad excepcional.
-                            Excelente agarre y ayuda a prevenir el tenis – elbow, ya que reduce las vibraciones de la raqueta.</H4>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado chico">Pack de 50 cubre grips </p>
-                        <br>
-                        <p class="price">ARS 140.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Cubre grip L-TEC PREMIUM')">
-                            Comprar
-                        </button>
-                    </div>
-
-                    <div class="product-card wide dos img-chica">
-                        <img id="adminAccessButton" src="{% static 'imagenes/agarres.png' %}"   alt="cuerda Enduro" >
-
-                        <h3 class="titulos-productos"> Pinzas STRINGWAY</h3>
-                        <H4> Para realizar encordados sin marcar las cuerdas ni perder la tensión
-                        </H4>
-                        <p class="parrafo-centrado p-negrita">Doble y triple agarre </p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Fabricadas en Holanda</p>
-                        <div class="linea-separadora"></div><br><br><br><br><br>
-                        <p class="parrafo-centrado chico">Ambas pinzas</p>
-                        <br>
-                        <p class="price">AR$ 250.000</p>
-                        <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Pinzas STRINGWAY')">
-                            Comprar
-                        </button>
-                    </div>
-
-                    <div class="product-card wide dos img-chica">
-                        <img id="adminAccessButton" src="{% static 'imagenes/encordadora.png' %}" alt="cuerda Enduro" >   
-                        <h3 class="titulos-productos"> Máquina de encordar BARTOM</h3>                                          
-                    </div>
-
-                    <div class="product-card wide dos img-chica-mas">
-
-                        <h3 class="titulos-productos"> Especificaciones</h3>
-                        <H4> Fabricada en Argentina. Orgullo nacional, reconocida mundialmente 
-                            gracias a la precisión de su tensor de cuerda. Con esto, combinado con el juego 
-                            de pinzas Stringway y el método de encordado SET, usted obtendrá la perfección 
-                            en el encordado de su raqueta. Se entrega completa con pinza de corte, de ajuste, 
-                            y acomodador de cuerdas. 
-                        </H4>
-                        <p class="parrafo-centrado p-negrita">En el precio se incluye 5 cuerdas redondas de 12.50m y 5 cubregrips. </p>
-                        <div class="linea-separadora"></div>
-                        <p class="parrafo-centrado p-negrita">Envío gratis.</p>
-                        <div class="linea-separadora"></div><br><br><br><br><br>
-                        <br>
-                        <p class="price">2 apoyos AR$ 400.000  </p><br>
-                        <p class="price">6 apoyos AR$ 500.000
-                            <br>
-                            <br>
-                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto Máquina de encordar BARTOM')">
-                            Comprar
-                        </button>
-
-                        </p>
-                    </div>
-
+                    {% endfor %}
                 </div>
             </div>
+
             
         </div>
     </div>

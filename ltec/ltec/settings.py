@@ -1,3 +1,5 @@
+import os
+
 """
 Django settings for ltec project.
 
@@ -58,7 +60,7 @@ ROOT_URLCONF = 'ltec.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'productos/templates'],  # Asegúrate de que esta ruta sea correcta
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,5 +135,32 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Media files (uploaded images, etc.)
-MEDIA_URL = '/media/'  # URL para acceder a los archivos subidos
-MEDIA_ROOT = BASE_DIR / 'media'  # Carpeta donde se guardarán los archivos subidos
+
+import os
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Configuración de archivos estáticos
+# Archivos estáticos (CSS, JS, imágenes estáticas)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'productos/static'),  # Ajusta según la ubicación real
+]
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Configuración de archivos de medios (imágenes subidas)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/imagenes')
+
+
+DEBUG = True  # Asegúrate de que esté activado en desarrollo
+
+
+
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'panel_admin'
+LOGOUT_REDIRECT_URL = 'login'

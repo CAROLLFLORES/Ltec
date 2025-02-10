@@ -1,0 +1,111 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Agregar Producto</h2>
+        <br>
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p style="color: red;">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <br>
+        
+        <form method="post" enctype="multipart/form-data">
+            <h2>AGREGAR PRODUCTO</h2>
+
+            {% csrf_token %}
+            <label for="nombre">Nombre:</label>
+            {{ form.nombre }}
+            <br><br>
+
+            <label for="descripcion">Descripción:</label>
+            {{ form.descripcion }}
+            <br><br>
+
+            <label for="precio">Precio:</label>
+            {{ form.precio }}
+            <br><br>
+
+            <label for="categoria">Categoría:</label>
+            {{ form.categoria }}
+            <br><br>
+
+            <label for="imagen">Imagen:</label>
+            {{ form.imagen }}
+            <br><br>
+
+            <div class="button-container">
+                <button type="submit">Guardar</button>
+                <a href="{% url 'listar_productos' %}" class="btn-action cancel-btn">Cancelar</a>
+            </div>
+           
+        </form>
+    </div>
+</body>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #000;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .form-container {
+        background: rgba(66, 66, 66, 0.8);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    input, select, button, textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 5px;
+        border: none;
+    }
+
+    button {
+        background-color: #ff6600;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background-color: #e65c00;
+    }
+
+    label {
+        font-size: 1.2em;
+        color: white;
+    }
+
+    .messages p {
+        color: red;
+        font-weight: bold;
+    }
+
+    h2 {
+        color: orange;
+    }
+</style>
+
+</html>

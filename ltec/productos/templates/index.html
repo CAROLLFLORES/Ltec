@@ -1,0 +1,662 @@
+<!-- HTML para la página principal de L-TEC -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Atlanta&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <title>L-TEC - Cuerdas de Alta Gama</title>
+</head>
+<body style="background: url('{% static 'imagenes/raqieta_oscura.jpeg' %}') no-repeat center center fixed; background-size: cover;">
+    <!-- Barra de navegación -->
+    <button class="hamburger-menu" aria-label="Abrir menú" >
+        <i class="bi bi-list"></i>
+    </button>
+
+    <nav class="nav">
+        <div class="logo">
+            <img src="{% static 'imagenes/logo.png' %}" alt="Logo" style="cursor: pointer;" />
+        </div>
+        <ul class="menu-left">
+            <li><a href="#cuerdas">CUERDAS</a></li>
+            <span class="separator"></span>
+            <li><a href="#accesorios">CUBRE GRIP</a></li>
+            <span class="separator"></span>
+            <li><a href="#accesorios">ACCESORIOS</a></li>
+        </ul>
+        <ul class="menu-right " >
+            <li><a href="#distribuidores">DISTRIBUIDORES</a></li>
+            <span class="separator"></span>
+            <li><a href="#contacto">CONTACTO</a></li>
+        </ul>
+    </nav>
+   
+
+    <!-- Modal para Ingreso de Contraseña -->
+    <div id="loginModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Acceso de Administrador</h3>
+            <p>Introduce la clave :</p>
+            <form id="loginForm">
+                <input type="password" id="password" placeholder="Contraseña" required style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 100%; margin-bottom: 10px;">
+                <button type="submit" style="background-color: #ff6600; color: white; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer;">Ingresar</button>
+            </form>
+        </div>
+    </div>
+    
+    
+
+    <div id="promoModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="closePromoModal">&times;</span>
+            <img id="promoImage" src="" alt="Imagen de la promoción" style="width: 50%; height: auto; margin-top: 10px;">
+            <h3 id="promoTitle"></h3>
+            <p id="promoDescription"></p>
+            <p id="precio"></p>
+        </div>
+    </div>
+
+ <!-- Menus sticky iconos-->
+    <div class="sticky-menu">
+        <div class="menu-item whatsapp">
+            <a href="https://wa.me/5493416830332?text=Hola,%20estoy%20interesado%20en%20sus%20productos" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-whatsapp"></i> <!-- Ícono de WhatsApp -->
+            </a>
+        </div>        
+        
+        <div class="menu-item email">
+                <a href="mailto:saulerlicher@hotmail.com" target="_blank">
+                    <i class="fas fa-envelope"></i> <!-- Ícono de Correo -->
+                </a>
+        </div>
+    </div>
+    
+    
+    
+    <!-- Sección Promociones -->     
+     
+    <div class="promo-section">
+        <div class="promo-sidebar">
+            <!-- Recuadro de Promociones -->
+            <div class="promo-box">
+                <div class="promo-header">
+                    <h4 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; ">PROMO Y SALDOS</h4>
+                </div>
+                <div class="promo-item active">
+                    <img id="adminAccessButton" src="{% static 'imagenes/3x2.jpeg' %}" alt="promo" />
+                </div>
+                <!-- Iterar sobre los productos de la categoría promociones -->
+                {% for producto in promociones %}
+                    <div class="promo-item product-card promo">
+                        {% if producto.imagen %}
+                            <img src="{% static '' %}{{ producto.imagen }}" alt="{{ producto.nombre }}">
+                        {% else %}
+                            <img src="{% static 'imagenes/logo.png' %}" alt="Imagen por defecto">
+                        {% endif %}                        
+                        <h3 class="titulos-productos" id="promoTitle">{{ producto.nombre }}</h3>
+                        <h5>{{ producto.descripcion }}</h5>
+                        <div class="linea-separadora"></div>
+                        <p class="parrafo-centrado chico">{{ producto.detalle }}</p>
+                        <div class="linea-separadora"></div>
+                        <p class="price" id="precio">ARS {{ producto.precio }}</p>
+                    </div>
+                {% endfor %}      
+        </div>
+            
+    </div>
+        
+<!-- Contenido principal -->
+        <div class="main-content">
+            <div class="hero">
+                <!-- Logo encima del texto -->
+                <div class="logo-hero">
+                    <img id="adminAccessButton" src="{% static 'imagenes/logo.png' %}" alt="Logo" />
+                </div>
+                <h3 class="title animate-from-right" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;     color: #ff6600;" >PRODUCTOS DE ALTA GAMA Y EXCELENCIA</h3>
+                <div class="right-section">
+                    <h2 >L-tec</h2><br>
+                    <h3>CUERDAS</h3>
+                    <div class="content">
+                        <p>Acorde a las exigencias del tenis de hoy, desarrollada en Inglaterra, 
+                        fabricada en Alemania e Italia. <br><br>
+                        L-TEC nació en Francia de la mano del australiano 
+                        John ELLIOT, diseñador profesional de cuerdas, en conjunto con el entrenador 
+                        argentino Saúl ERLICHER utilizando la tecnología de vanguardia existente en 
+                        Inglaterra con moléculas de fabricación única con marca registrada.</p>
+                        <p><strong>L-TEC es una cuerda testeada en los más altos niveles de exigencia con 
+                        una relación calidad-durabilidad única en el mercado.</strong></p>
+                    </div>
+                </div>
+                
+            </div>
+            <br><br><br><br><br><br><br><br>
+             <!-- Productos principales -->
+             <h3 class="margin-izquierdo title animate-from-left" id="cuerdas"  style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;    
+             ">CUERDAS</h3>
+             <div class="product-section">
+                 <div class="product-grid">
+                     {% for producto in cuerdas %}
+                         <div class="product-card">
+                            {% if producto.imagen %}
+                                <img src="{% static '' %}{{ producto.imagen.name }}" alt="{{ producto.nombre }}">
+                            {% else %}
+                                <img src="{% static 'imagenes/logo.png' %}">
+                            {% endif %}
+
+                            <h3 class="titulos-productos">{{ producto.nombre }}</h3>
+                             <p class="parrafo-centrado p-negrita">{{ producto.descripcion }}</p>
+                             <div class="linea-separadora"></div>
+                             <p class="price">ARS {{ producto.precio }}</p>
+                             <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto {{ producto.nombre }} por ARS {{ producto.precio }}')">
+                                 Comprar
+                             </button>
+                         </div>
+                     {% endfor %}
+                 </div>
+             </div>
+
+            <br><br>
+            <div class="linea-separadora grande margin-izquiedo" id="cuerdas_perfiladas"></div>
+            <h3 class="margin-izquierdo title animate-from-left" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;">CUERDAS PERFILADAS</h3>
+            <div class="product-section">
+                <div class="product-grid">
+                    {% for producto in cuerdas_perfiladas %}
+                        <div class="product-card">
+                            {% if producto.imagen %}
+                                <img src="{% static '' %}{{ producto.imagen.name }}" alt="{{ producto.nombre }}">
+                            {% else %}
+                                <img src="{% static 'imagenes/logo.png' %}">
+                            {% endif %}
+                            <h3 class="titulos-productos">{{ producto.nombre }}</h3>
+                            <H4>{{ producto.descripcion }}</H4>
+                            <div class="linea-separadora"></div>
+                            <p class="parrafo-centrado p-negrita">{{ producto.detalle }}</p>
+                            <div class="linea-separadora"></div>
+                            <p class="parrafo-centrado chico">Rollo de 200mts.</p>
+                            <br>
+                            <p class="price">ARS {{ producto.precio }}</p>
+                            <br>
+                            <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto {{ producto.nombre }} por ARS {{ producto.precio }}')">
+                                Comprar
+                            </button>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+
+            <br><br>
+            <div class="linea-separadora grande margin-izquiedo"></div>
+            <h3 class="margin-izquierdo title animate-from-left" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;">HIBRIDO</h3>
+
+            <div class="product-section hibrido-section">
+                <div class="product-grid-hibrido">
+                    {% for producto in hibrido %}
+                        <div class="product-card wide">
+                            {% if producto.imagen %}
+                                <img src="{% static '' %}{{ producto.imagen.name }}" alt="{{ producto.nombre }}">
+                            {% else %}
+                                <img src="{% static 'imagenes/logo.png' %}" alt="Imagen por defecto">
+                            {% endif %}
+                            
+                            <h3 class="titulos-productos">{{ producto.nombre }}</h3>
+                            <h4>{{ producto.descripcion }}</h4>
+                            <div class="linea-separadora"></div>
+                            <p class="parrafo-centrado p-negrita">{{ producto.detalle }}</p>
+                            <div class="linea-separadora"></div>
+                            <p class="price">ARS {{ producto.precio }}</p>
+                            <br>
+                            <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto {{ producto.nombre }}')">
+                                Comprar
+                            </button>
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+
+
+            <br><br>
+            <div class="linea-separadora grande margin-izquiedo"></div>
+            <h3 class="margin-izquierdo title animate-from-left" id="accesorios" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;">ACCESORIOS</h3>
+
+            <div class="product-section accesorios-section">
+                <div class="product-grid-accesorios">
+                    {% for producto in accesorios %}
+                    <div class="product-card wide">
+                        {% if producto.imagen %}
+                            <img src="{% static '' %}{{ producto.imagen.name }}" alt="{{ producto.nombre }}">
+                        {% else %}
+                            <img src="{% static 'imagenes/logo.png' %}" alt="Imagen por defecto">
+                        {% endif %}
+                        
+                        <h3 class="titulos-productos">{{ producto.nombre }}</h3>
+                        <h4>{{ producto.descripcion }}</h4>
+                        <div class="linea-separadora"></div>
+                        <p class="parrafo-centrado p-negrita">{{ producto.detalle }}</p>
+                        <div class="linea-separadora"></div>
+                        <p class="price">ARS {{ producto.precio }}</p>
+                        <br>
+                        <button class="buy-button" onclick="openWhatsApp('Hola, estoy interesado en el producto {{ producto.nombre }}')">
+                            Comprar
+                        </button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+    </div>
+    <div class="distribuidores-section" id="distribuidores">
+        <h3 class="margin-izquierdo title animate-from-left" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;    
+  ">DISTRIBUIDORES</h3>
+        <div class="distribuidores-container">
+            <!-- Provincia de Santa Fe -->
+            <div class="provincia">
+                <h2>Prov. de Santa Fe</h2>
+                <div class="ciudad">
+                    <br>
+                    <h3>Rosario</h3>
+                    <ul>
+                        <p>Halcry Tennis: 
+                            <br>
+                            <br>
+
+                            <a href="https://wa.me/5493414400634" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span class="phone">+54 9 341 440-0634</span>
+                            </a>
+                        </p>
+                        <br>
+
+                        <p>Victoria Deportes: 
+                            <br>
+                            <br>
+
+                            <a href="https://wa.me/5493415203710" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span class="phone">+54 9 341 520-3710</span>
+                            </a>
+                        </p>
+                    </ul>
+                </div>
+                <br>
+                <div class="ciudad">
+                    <h3>San Lorenzo</h3>
+                    <ul>
+                        <p>Alberto Lirusso: 
+                            <br>
+                            <br>
+
+                            <a href="https://wa.me/5493476611385" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span class="phone">+54 9 3476 61-1385</span>
+                            </a>
+                        </p>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Provincia de Córdoba -->
+            <div class="provincia">
+                <h2>Prov. de Córdoba</h2>
+                <div class="ciudad">
+                    <br>
+                    <h3>Córdoba Capital</h3>
+                    <ul>
+                        <p>Open Tenis: 
+                            <br>
+                            <br>
+
+                            <a href="https://wa.me/5493516503231" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span class="phone">+54 9 351 650-3231</span>
+                            </a>
+                        </p>
+                                            <br>
+
+                        <p>Master Tenis: 
+                            <br>
+                            <br>
+
+                            <a href="https://wa.me/5493513901998" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span class="phone">+54 9 351 390-1998</span>
+                            </a>
+                        </p>
+                    </ul>
+                </div>
+                <br>
+                <div class="ciudad">
+                    
+                    <h3>Córdoba Sur</h3>
+                    <ul>
+                        <p>Fabián Ravetta: 
+                            <br>
+                            <br>
+
+                            <a href="https://wa.me/5493582594794" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span class="phone">+54 9 3582 59-4794</span>
+                            </a>
+                        </p>
+                    </ul>
+                </div>
+            </div>
+    
+            <!-- Buenos Aires -->
+            <div class="provincia">
+                <h2>Buenos Aires</h2>
+                <div class="ciudad">
+                    <br>
+                    <h3>C.A.B.A.</h3>
+                    <ul>
+                        <p>Mariano Larripa: 
+                            <br>
+                            <br>
+                            <a href="https://wa.me/5491151803557" target="_blank">
+                                <i class="fab fa-whatsapp"></i> <span class="phone">+54 9 11 5180-3557</span>
+                            </a>
+                        </p>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script>
+
+        // Crear el círculo personalizado
+        const cursor = document.createElement('div');
+        cursor.classList.add('custom-cursor');
+        document.body.appendChild(cursor);
+
+        // Actualizar la posición del círculo según el mouse
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.pageX - 10}px`; // Centra el círculo
+            cursor.style.top = `${e.pageY - 10}px`;
+        });
+
+        // Esconder el cursor cuando no esté sobre botones o promociones
+        document.addEventListener('mouseleave', () => {
+            cursor.style.display = 'none';
+        });
+
+        document.addEventListener('mouseenter', () => {
+            cursor.style.display = 'block';
+        });
+
+        // Selección de elementos de las promociones y el modal
+    const promoItems = document.querySelectorAll('.promo-item');
+    const modal = document.getElementById('promoModal');
+    const modalTitle = document.getElementById('promoTitle');
+    const modalDescription = document.getElementById('promoDescription');
+    const modalImage = document.getElementById('promoImage');
+    const closeBtn = document.querySelector('.modal .close');
+    let currentPromo = 0;
+
+    // Función para rotar promociones
+    function rotatePromotions() {
+        // Oculta la promoción actual
+        promoItems[currentPromo].classList.remove('active');
+        // Muestra la siguiente promoción
+        currentPromo = (currentPromo + 1) % promoItems.length;
+        promoItems[currentPromo].classList.add('active');
+    }
+
+    // Cambia de promoción cada 2.5 segundos
+    setInterval(rotatePromotions, 2500);
+
+    // Función para abrir el modal al hacer clic en una promoción
+    promoItems.forEach((item) => {
+        item.addEventListener('click', () => {
+            // Obtener datos de la promoción
+            const title = item.querySelector('h3') ? item.querySelector('h3').textContent : 'Promoción';
+            const description = item.querySelector('p') ? item.querySelector('p').textContent : '';
+            const image = item.querySelector('img') ? item.querySelector('img').src : '';
+
+            // Actualizar contenido del modal
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modalImage.src = image;
+
+            // Mostrar el modal
+            modal.style.display = 'block';
+        });
+    });
+
+    // Cerrar el modal al hacer clic en la "X"
+    closePromoModal.addEventListener("click", () => {
+        promoModal.style.display = "none";
+    });
+
+    // Evento para cerrar el modal al hacer clic fuera de él
+    window.addEventListener("click", (event) => {
+        if (event.target === promoModal) {
+            promoModal.style.display = "none";
+        }
+    });
+
+    // Función para desplazarse hacia arriba
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth", // Desplazamiento suave
+        });
+    }
+
+    // Mostrar u ocultar el botón según el scroll
+    const scrollButton = document.querySelector('.scroll-button');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) {
+            scrollButton.classList.add('show'); // Muestra el botón
+            scrollButton.classList.remove('hide');
+        } else {
+            scrollButton.classList.add('hide'); // Oculta el botón
+            scrollButton.classList.remove('show');
+        }
+    });
+
+    function openWhatsApp(message) {
+        const phoneNumber = '5493416830332'; // Número de WhatsApp
+        const encodedMessage = encodeURIComponent(message); // Codifica el mensaje para la URL
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank'); // Abre WhatsApp en una nueva pestaña
+    }
+//detecta el scroll//
+    document.addEventListener('DOMContentLoaded', () => {
+        const titles = document.querySelectorAll('.title'); // Selecciona todos los títulos
+    
+        function handleScroll() {
+            titles.forEach((title) => {
+                const rect = title.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    
+                // Comprueba si el título es visible en la pantalla
+                if (rect.top < windowHeight && rect.bottom > 0) {
+                    title.classList.add('animate'); // Activa la animación
+                }
+            });
+        }
+    
+        // Escucha el evento de scroll
+        window.addEventListener('scroll', handleScroll);
+    
+        // Llama la función por si ya están visibles al cargar
+        handleScroll();
+    });
+    
+        // Contraseña predefinida
+    const correctPassword = "12345"; // Cambia esta contraseña
+
+    // Elementos del DOM
+    const adminAccessButton = document.getElementById("adminAccessButton");
+    const loginModal = document.getElementById("loginModal");
+    const loginForm = document.getElementById("loginForm");
+    const passwordInput = document.getElementById("password");
+    const editOptions = document.getElementById("editOptions"); // Opciones de edición (ocultas por defecto)
+
+    // Evento al hacer clic en el logo (adminAccessButton)
+    adminAccessButton.addEventListener("click", () => {
+        loginModal.style.display = "flex"; // Muestra el modal
+    });
+
+    // Cerrar el modal al hacer clic en la "X"
+    const closeLoginModal = document.querySelector("#loginModal .close");
+    closeLoginModal.addEventListener("click", () => {
+        loginModal.style.display = "none";
+        passwordInput.value = ""; // Limpia el campo de contraseña
+    });
+
+    // Manejar el formulario de login
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const enteredPassword = passwordInput.value;
+
+        if (enteredPassword === correctPassword) {
+            // Mostrar las opciones de edición solo si la contraseña es correcta
+            loginModal.style.display = "none";
+            editOptions.style.display = "block"; // Muestra las herramientas de edición
+            alert("Bienvenido, ahora puedes editar productos.");
+        } else {
+            alert("Contraseña incorrecta. Inténtalo nuevamente.");
+            passwordInput.value = ""; // Limpia el campo de contraseña
+        }
+    });
+    
+    function enableEditMode() {
+        const editButtons = document.querySelectorAll(".edit-buttons");
+        editButtons.forEach(buttonGroup => {
+            buttonGroup.style.display = "block"; // Muestra los botones de edición
+        });
+    }
+    
+    // Verifica si el administrador ingresó correctamente
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const enteredPassword = passwordInput.value;
+    
+        if (enteredPassword === correctPassword) {
+            loginModal.style.display = "none"; // Oculta el modal
+            enableEditMode(); // Activa el modo de edición
+            alert("Bienvenido, ahora puedes editar productos.");
+        } else {
+            alert("Contraseña incorrecta. Inténtalo nuevamente.");
+            passwordInput.value = ""; // Limpia el campo de contraseña
+        }
+    });
+    
+    const editButtons = document.querySelectorAll(".edit-product");
+    editButtons.forEach(button => {
+        button.addEventListener("click", (e) => {
+            const productCard = e.target.closest(".product-card");
+            const productTitle = productCard.querySelector("h3").textContent;
+            alert(`Modificar producto: ${productTitle}`);
+            // Aquí puedes abrir un formulario para editar los detalles
+        });
+    });
+
+    const deleteButtons = document.querySelectorAll(".delete-product");
+    deleteButtons.forEach(button => {
+        button.addEventListener("click", (e) => {
+            const productCard = e.target.closest(".product-card");
+            const productTitle = productCard.querySelector("h3").textContent;
+            if (confirm(`¿Estás seguro de que deseas eliminar el producto "${productTitle}"?`)) {
+                productCard.remove(); // Elimina el producto del DOM
+                alert("Producto eliminado con éxito.");
+            }
+        });
+    });
+
+    //animacion//
+    document.addEventListener("DOMContentLoaded", () => {
+        const products = document.querySelectorAll(".product-card"); // Selecciona todos los productos
+    
+        function handleScroll() {
+            const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    
+            products.forEach((product) => {
+                const rect = product.getBoundingClientRect();
+                if (rect.top < windowHeight - 100) {
+                    // Si el producto está visible en la ventana, añade la clase "animate"
+                    product.classList.add("animate");
+                }
+            });
+        }
+    
+        // Escucha el evento de scroll
+        window.addEventListener("scroll", handleScroll);
+    
+        // Llama a la función al cargar para animar los productos visibles inicialmente
+        handleScroll();
+    });
+
+    //menu hamburgueza//
+    document.addEventListener('DOMContentLoaded', () => {
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const navMenu = document.querySelector('.nav ul');
+    
+        // Mostrar menú hamburguesa solo en pantallas pequeñas
+        if (window.innerWidth <= 768) {
+            hamburgerMenu.addEventListener('click', () => {
+                navMenu.classList.toggle('active'); // Alterna la clase active
+            });
+        }
+    
+        // Oculta el menú al hacer clic fuera de él
+        document.addEventListener('click', (event) => {
+            if (!navMenu.contains(event.target) && !hamburgerMenu.contains(event.target)) {
+                navMenu.classList.remove('active'); // Asegura que se cierre
+            }
+        });
+    });
+  
+    
+    
+    
+    
+    </script>
+    
+    <footer>    
+        <div class="footer-content" id="contacto"></div>
+        <h3 class="margin-izquierdo title animate-from-left" id="cubregrip" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;     color: #ff6600;
+  ">SEGUINOS</h3> 
+        <div class="envelope">
+            <div class="social-icons">
+                <!-- Reemplaza las URL de los enlaces con tus perfiles sociales -->
+                <a href="https://wa.me/5493416830332?text=Hola,%20estoy%20interesado%20en%20sus%20productos" target="_blank" rel="noopener noreferrer">  <i class="fab fa-instagram"></i></i></a>
+                <a href="https://wa.me/5493416830332?text=Hola,%20estoy%20interesado%20en%20sus%20productos" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:saulerlicher@hotmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+            </div> 
+        </div>
+        <br><br>
+        <div class="footer-content">
+            <div class="footer-section">
+                <p >Compras por mayor y menor.</p>  
+                <p>Contratos profesionales.</p>  
+                <p>Envíos a todo el país.</p>
+                <h3 class="margin-izquierdo title animate-from-left" id="cubregrip" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri; font-size: 14px;     color: #ff6600;
+  ">CONTACTANOS</h3> 
+                <h4>Saúl ERLICHER</h4>          
+                <p><i class="fas fa-envelope"></i> Email: saulerlicher@hotmail.com</p>
+                <p><i class="fas fa-phone-alt"  ></i> Teléfono: +54 341 6830332</p>
+                <p><i class="fas fa-map-marker-alt"></i> Dirección: Calle Falsa 123, Rosario, Santa Fe, Argentina</p>
+            </div>
+        </div>  
+        <p class="parrafo-centrado">&copy; 2024 L-TEC. Todos los derechos reservados.</p>
+        
+        <button onclick="scrollToTop()" class="scroll-button">
+            <i class="bi bi-arrow-up"></i>
+        </button>
+    </footer>
+       
+</body>
+</html>

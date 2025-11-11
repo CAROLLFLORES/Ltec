@@ -13,7 +13,7 @@ Esta Landing Page cuenta con una interfaz moderna e intuitiva, especialmente dis
 Permite gestionar productos y precios de forma sencilla, brindando la posibilidad de:
 
   * Agregar productos
-  * Editar imágenes, texto, precios
+  * Editar imágenes, contenido, precios
   * Eliminar productos <br>
 
 Todo esto sin necesidad de conocimientos técnicos o de programación, asegurando una experiencia de uso práctica y accesible.
